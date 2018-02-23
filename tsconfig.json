@@ -13,9 +13,8 @@
     "target": "es5",
     "skipLibCheck": false,
     "types": [
-      "bootstrap",
-      "jquery",
-      "toastr"
+      "toastr",
+      "jssha"
     ],
     "typeRoots": [
       "node_modules/@types"
@@ -25,12 +24,16 @@
       "es2016",
       "dom",
       "es2015"
-    ]
+    ],
+    "paths": {
+      "/testing": ["./src/testing"]
+    }
   },
   "files": [
     "./build/public_api.ts"
   ],
   "include": [
+    "./build/testing/index.ts",
     "./build/**/*.d.ts"
   ],
   "exclude": [

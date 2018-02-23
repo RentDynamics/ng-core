@@ -24,7 +24,7 @@ System.config({
     'rxjs': 'node:rxjs',
     'main': 'main.js',
     'moment': 'node:moment/min/moment.min.js',
-    'jssha': 'node:jssha/src/sha3.js',
+    'jssha': 'node:jssha/src/sha.js',
 
     '@rd/core': 'node:@rd/core/bundles/core.umd.min.js',
     '@rd/core/testing': 'node:@rd/core/bundles/core-testing.umd.min.js',

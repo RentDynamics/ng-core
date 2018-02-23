@@ -4,8 +4,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify'
 //paths are relative to the execution path
 
-const fileName = 'datetime';
-const moduleName = '@turbonemesis/datetime';
+const fileName = 'core';
+const moduleName = '@rd/core';
 const moduleVersion = '7.0.0';
 
 

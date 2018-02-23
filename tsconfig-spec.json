@@ -4,6 +4,7 @@
     "outDir": "./dist",
     "baseUrl": ".",
     "rootDir": "./build",
+    "target": "es5",
     "sourceMap": true,
     "module": "umd",
     "moduleResolution": "node",
@@ -12,9 +13,8 @@
     "declaration": false,
     "types": [
       "jasmine",
-      "bootstrap",
-      "jquery",
-      "toastr"
+      "toastr",
+      "jssha"
     ],
     "typeRoots": [
       "node_modules/@types"
@@ -23,9 +23,13 @@
       "es2016",
       "dom",
       "es2015"
-    ]
+    ],
+    "paths": {
+      "/testing": ["./src/testing"]
+    }
   },
   "include": [
+    "./build/testing/index.ts",
     "./build/datetime.ts",
     "./build/browser-test-shim.ts",
     "./build/systemjs.config.ts",

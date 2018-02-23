@@ -37,9 +37,10 @@ module.exports = function(config) {
       {pattern: 'node_modules/@rd/**/*', included: false, watched: false},
       {pattern: 'node_modules/rxjs/**/*', included: false, watched: false},
       {pattern: 'node_modules/moment/min/moment.min.js', included: false, watched: false},
-      {pattern: 'node_modules/jssha/src/sha3.js', included: false, watched: false},
-
+      {pattern: 'node_modules/jssha/src/sha.js', included: true, watched: false},
+ 
       // 'build/systemjs.config.js',
+      'base/node_modules/jssha/src/sha.js',
       'dist/browser-test-shim.js',
 
       //'build/**/*.+(js|js.map|css|html)',

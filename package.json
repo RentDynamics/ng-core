@@ -1,9 +1,9 @@
 {
-  "name": "@rd/datetime",
+  "name": "@rd/core",
   "version": "0.0.0-development",
-  "main": "bundles/datetime.umd.min.js",
+  "main": "bundles/core.umd.min.js",
   "repository": "https://github.com/RentDynamics/ng-core",
-  "typings": "datetime.d.ts",
+  "typings": "core.d.ts",
   "private": false,
   "author": {
     "name": "rd"
@@ -29,10 +29,7 @@
   "peerDependencies": {
     "@angular/core": ">= 5.0.0",
     "@angular/common": ">= 5.0.0",
-    "@rd/core": ">= 7.0.0",
-    "moment": "2.x",
-    "moment-range": "2.x",
-    "moment-timezone": "0.x",
+    "jssha": "2.x",
     "rxjs": ">= 5.0.0"
   },
   "devDependencies": {
@@ -54,7 +51,6 @@
     "@types/moment-range": "^3.0.5",
     "@types/node": "~6.0.60",
     "@types/toastr": "^2.1.35",
-    "@rd/core": "file:rd-core-7.0.0.tgz",
     "jssha": "^2.3.1",
     "camelcase": "^4.1.0",
     "concurrently": "3.5.0",
