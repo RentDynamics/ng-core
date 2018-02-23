@@ -1,0 +1,43 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "rootDir": "./build",
+    "sourceMap": true,
+    "module": "umd",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "declaration": false,
+    "types": [
+      "jasmine",
+      "bootstrap",
+      "jquery",
+      "toastr"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom",
+      "es2015"
+    ]
+  },
+  "include": [
+    "./build/datetime.ts",
+    "./build/browser-test-shim.ts",
+    "./build/systemjs.config.ts",
+    "./build/**/*.d.ts",
+    "./build/**/*.spec.ts"
+  ],
+  "exclude": [
+    "**/node_modules"
+  ],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
+}

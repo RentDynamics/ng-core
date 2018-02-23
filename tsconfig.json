@@ -1,0 +1,45 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "rootDir": "./build",
+    "sourceMap": true,
+    "module": "es2015",
+    "declaration": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "skipLibCheck": false,
+    "types": [
+      "bootstrap",
+      "jquery",
+      "toastr"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es5",
+      "es2016",
+      "dom",
+      "es2015"
+    ]
+  },
+  "files": [
+    "./build/public_api.ts"
+  ],
+  "include": [
+    "./build/**/*.d.ts"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/*.spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
+}
