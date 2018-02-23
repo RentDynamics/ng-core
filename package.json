@@ -26,6 +26,9 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/core": ">= 5.0.0",
     "@angular/common": ">= 5.0.0",
