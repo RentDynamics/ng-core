@@ -1,5 +1,5 @@
 {
-  "name": "@turbonemesis/datetime",
+  "name": "@rd/datetime",
   "version": "0.0.0-development",
   "main": "bundles/datetime.umd.min.js",
   "repository": "https://github.com/chase2981/base-angular-lib",
@@ -17,7 +17,8 @@
     "build": "./build.sh",
     "commit": "git-cz",
     "test": "./test.sh --single-run true",
-    "prepush": "npm test"
+    "prepush": "npm test",
+    "semantic-release": "semantic-release"
   },
   "readme": "README.md",
   "config": {
@@ -86,6 +87,7 @@
     "rxjs": "5.5.5",
     "systemjs": "0.19.39",
     "zone.js": "0.8.18",
-    "typescript": "~2.4.2"
+    "typescript": "~2.4.2",
+    "semantic-release": "^12.4.1"
   }
 }
