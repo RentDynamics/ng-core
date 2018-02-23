@@ -2,7 +2,7 @@
   "name": "@rd/datetime",
   "version": "0.0.0-development",
   "main": "bundles/datetime.umd.min.js",
-  "repository": "https://github.com/chase2981/base-angular-lib",
+  "repository": "https://github.com/RentDynamics/ng-core",
   "typings": "datetime.d.ts",
   "private": false,
   "author": {
