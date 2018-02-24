@@ -18,7 +18,7 @@
     "commit": "git-cz",
     "test": "./test.sh --single-run true",
     "prepush": "npm test",
-    "semantic-release": "semantic-release"
+    "semantic-release": "cd ./dist && semantic-release"
   },
   "readme": "README.md",
   "config": {
