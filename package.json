@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "main": "bundles/core.umd.min.js",
   "repository": "https://github.com/RentDynamics/ng-core",
-  "typings": "core.d.ts",
+  "typings": "public_api.d.ts",
   "private": false,
   "author": {
     "name": "rd"

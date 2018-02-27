@@ -20,8 +20,9 @@ $NGC -p $PWD/tsconfig.json
 # Make directory dist/bundles
 mkdir $PWD/dist/bundles
 
-# Rollup dist/public_api into bundles/core.umd.min.js w/sourcemaps
+# Rollup dist/public_api into bundles/core.umd.js, bundles/core.umd.min.js w/sourcemaps
 $ROLLUP -c=.rollup.config.js
+$ROLLUP -c=.rollup.config.js --environment UGLIFY
 # Rollup dist/testing/index.js into bundles/core-testing.umd.min.js w/sourcemaps
 $ROLLUP $PWD/dist/testing/index.js -o $PWD/dist/bundles/core-testing.umd.min.js -f umd --name @rd/core/testing -m \
 --external rxjs/Rx --globals rxjs/Rx:rxjs.Rx

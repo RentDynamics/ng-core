@@ -9,7 +9,7 @@ const moduleName = '@rd/core';
 const moduleVersion = '7.0.0';
 
 
-export default {
+var config = {
     input: `dist/public_api.js`,
     external: [
         '@angular/core',
@@ -24,9 +24,9 @@ export default {
     ],
     output: {
         name: moduleName,
-        file: `dist/bundles/${fileName}.umd.min.js`, // output a single application bundle
+        file: `dist/bundles/${fileName}.umd${ process.env.UGLIFY ? '.min' : '' }.js`, // output a single application bundle
         sourcemap: true,
-        sourcemapFile: `dist/bundles/${fileName}.umd.min.js.map`,
+        sourcemapFile: `dist/bundles/${fileName}.umd${ process.env.UGLIFY ? '.min' : '' }.js.map`,
         format: 'umd',
         // external: ['@angular', 'rxjs/*'],
         // paths: {
@@ -70,8 +70,13 @@ export default {
         /* https://github.com/rollup/rollup-plugin-commonjs */
         commonjs({
             include: ['node_modules/rxjs/**']
-        }),
-        /* https://github.com/TrySound/rollup-plugin-uglify */
-        uglify()
+        })
     ]
 }
+
+if(process.env.UGLIFY){
+  /* https://github.com/TrySound/rollup-plugin-uglify */
+  config.plugins.push(uglify())
+}
+
+export default config;
