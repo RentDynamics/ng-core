@@ -77,6 +77,31 @@ module.exports = function (config) {
         // { type: 'text', subdir: '.', file: 'text.txt' },
         { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
       ],
+      check: {
+        global: {
+          statements: 75,
+          branches: 55,
+          functions: 75,
+          lines: 75,
+          excludes: [
+            'foo/bar/**/*.js'
+          ]
+        },
+        // each: {
+        //   statements: 50,
+        //   branches: 50,
+        //   functions: 50,
+        //   lines: 50,
+        //   excludes: [
+        //     'other/directory/**/*.js'
+        //   ],
+        //   overrides: {
+        //     'baz/component/**/*.js': {
+        //       statements: 98
+        //     }
+        //   }
+        // }
+      },
       watermarks: {
         statements: [70, 75],
         functions: [70, 75],
