@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: require('path').join(__dirname, './'),
     frameworks: ['jasmine'],
@@ -9,7 +9,10 @@ module.exports = function(config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
-      require('karma-phantomjs-launcher')
+      require('karma-phantomjs-launcher'),
+      // require('karma-remap-istanbul'),
+      require('karma-coverage'),
+      require('karma-junit-reporter')
     ],
 
     // Proxied base paths for loading assets
@@ -38,7 +41,7 @@ module.exports = function(config) {
       {pattern: 'node_modules/rxjs/**/*', included: false, watched: false},
       {pattern: 'node_modules/moment/min/moment.min.js', included: false, watched: false},
       {pattern: 'node_modules/jssha/src/sha.js', included: true, watched: false},
- 
+
       // 'build/systemjs.config.js',
       'base/node_modules/jssha/src/sha.js',
       'dist/browser-test-shim.js',
@@ -51,7 +54,48 @@ module.exports = function(config) {
       {pattern: 'dist/lib/**', included: false, watched: true}
     ],
 
-    reporters: ['progress', 'kjhtml'],
+    preprocessors: {
+      'dist/lib/**/!(*spec).js': ['coverage']
+    },
+
+    // add both "karma-coverage" and "karma-remap-coverage" reporters
+    reporters: ['progress', 'coverage', 'junit'],
+
+    // save interim raw coverage report in memory
+    coverageReporter: {
+      // specify a common output directory
+      dir: 'dist/reports/coverage',
+      reporters: [
+        // reporters not supporting the `file` property
+        { type: 'html', subdir: 'report-html' },
+        { type: 'lcov', subdir: 'report-lcov' },
+        // reporters supporting the `file` property, use `subdir` to directly
+        // output them in the `dir` directory
+        { type: 'cobertura', subdir: '.', file: 'cobertura.xml' },
+        { type: 'lcovonly', subdir: '.', file: 'coverage.lcov' },
+        // { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
+        // { type: 'text', subdir: '.', file: 'text.txt' },
+        { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
+      ],
+      watermarks: {
+        statements: [70, 75],
+        functions: [70, 75],
+        branches: [70, 75],
+        lines: [70, 75]
+      }
+    },
+
+    // the default configuration
+    junitReporter: {
+      outputDir: 'dist/reports/junit', // results will be saved as $outputDir/$browserName.xml
+      outputFile: 'junit.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
+      suite: '@rd/compiler', // suite will become the package name attribute in xml testsuite element
+      useBrowserName: false, // add browser name to report and classes names
+      nameFormatter: undefined, // function (browser, result) to customize the name attribute in xml testcase element
+      classNameFormatter: undefined, // function (browser, result) to customize the classname attribute in xml testcase element
+      properties: {}, // key value pair of properties to add to the <properties> section of the report
+      xmlVersion: null // use '1' if reporting to be per SonarQube 6.2 XML format
+    },
 
     customLaunchers: {
       "Chrome_1024x768": {
@@ -63,7 +107,6 @@ module.exports = function(config) {
     },
 
     exclude: [],
-    preprocessors: {},
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
