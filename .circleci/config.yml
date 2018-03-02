@@ -42,15 +42,14 @@ jobs:
 
       # run tests!
       - run: yarn test
-      - run: yarn build
       - store_artifacts:
           path: dist/reports/coverage
-
       - store_artifacts:
           path: dist/reports/junit
-
       - store_test_results:
           path: dist/reports/junit
+
+      - run: yarn build
 
 deployment:
   master:
