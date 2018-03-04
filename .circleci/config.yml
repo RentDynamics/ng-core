@@ -3,13 +3,6 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
-
-general:
-  branches:
-    only:
-      - master # list of branches to build
-      - dev
-
 jobs:
   build:
     docker:
@@ -49,11 +42,15 @@ jobs:
       - store_test_results:
           path: dist/reports/junit
 
-      - run: yarn build
-
-deployment:
-  master:
-    branch: master
-    # owner: circleci ## todo: figure out correct owner to put here
-    commands:
-      - run: yarn semantic-release || true
+      - deploy:
+          name: yarn build
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn build
+            fi
+      - deploy:
+          name: yarn semantic-release
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn semantic-release
+            fi
