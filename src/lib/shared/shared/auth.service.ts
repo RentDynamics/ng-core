@@ -114,11 +114,7 @@ this.formatPayload(test);
         return this.http.post(url, user)
             .toPromise()
             .then((res) => {
-                let response = res.json();
-                this.config.authToken = response.token;
-                this.config.userId = response.userId;
-                window.sessionStorage.setItem('rdUserAuthToken', this.config.authToken);
-                window.sessionStorage.setItem('rdUserId', this.config.userId);
+              this.loginCallback(res);
             });
     }
 
@@ -133,13 +129,18 @@ this.formatPayload(test);
         let url = this.getHost() + endpoint;
         let headers = this.getAuthHeadersWithoutAuth(endpoint, body);
         return this.http.post(url, body, {headers: headers}).flatMap((result) => {
-            let response = result.json ? result.json() : result;
-            this.config.authToken = response.token;
-            this.config.userId = response.userId;
-            window.sessionStorage.setItem('rdUserAuthToken', this.config.authToken);
-            window.sessionStorage.setItem('rdUserId', this.config.userId);
+            let response = this.loginCallback(result);
             return Observable.from([ response ]);
         });
+    }
+
+    loginCallback(res) {
+      let response = res.json ? res.json() : res;
+      this.config.authToken = response.token;
+      this.config.userId = response.userId;
+      window.sessionStorage.setItem('rdUserAuthToken', this.config.authToken);
+      window.sessionStorage.setItem('rdUserId', this.config.userId);
+      return response;
     }
 
     isAuthenticated() {
