@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Credentials } from './credentials';
 import { AuthServiceConfig } from './auth-service-config';
 
-declare var jsSHA: jsSHA.jsSHA;
+import * as jsSHA from 'jssha';
 
 @Injectable()
 export class AuthService {
