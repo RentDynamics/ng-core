@@ -13,7 +13,7 @@ import {
   HttpModule, Http, XHRBackend, Response, ResponseOptions
 } from '@angular/http';
 
-declare var jsSHA: jsSHA.jsSHA;
+import * as jsSHA from 'jssha';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
