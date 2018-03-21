@@ -64,18 +64,20 @@ module.exports = function (config) {
     // save interim raw coverage report in memory
     coverageReporter: {
       // specify a common output directory
-      dir: 'dist/reports/coverage',
+      dir: 'coverage',
       reporters: [
         // reporters not supporting the `file` property
-        { type: 'html', subdir: 'report-html' },
-        { type: 'lcov', subdir: 'report-lcov' },
+        // { type: 'html', subdir: 'report-html' },
+        // { type: 'lcov', subdir: 'report-lcov' },
         // reporters supporting the `file` property, use `subdir` to directly
         // output them in the `dir` directory
-        { type: 'cobertura', subdir: '.', file: 'cobertura.xml' },
-        { type: 'lcovonly', subdir: '.', file: 'coverage.lcov' },
+        { type: 'json', subdir: '.', file: 'coverage.json' },
+        { type: 'json', subdir: '.' },
+        // { type: 'cobertura', subdir: '.', file: 'cobertura.xml' },
+        { type: 'lcovonly', subdir: '.', file: 'lcov.info' },
         // { type: 'teamcity', subdir: '.', file: 'teamcity.txt' },
         // { type: 'text', subdir: '.', file: 'text.txt' },
-        { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
+        // { type: 'text-summary', subdir: '.', file: 'text-summary.txt' },
       ],
       check: {
         global: {
