@@ -55,6 +55,7 @@
     "@types/toastr": "^2.1.35",
     "camelcase": "^4.1.0",
     "canonical-path": "0.0.2",
+    "codecov": "3.0.0",
     "commitizen": "2.9.6",
     "concurrently": "3.5.0",
     "core-js": "2.5.2",
