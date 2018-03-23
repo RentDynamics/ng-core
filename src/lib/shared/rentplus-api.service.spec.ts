@@ -29,6 +29,14 @@ import { CoreApiService } from './core-api.service';
 import { CoreAuthService } from './core-auth.service';
 import { CoreAuthServiceConfig } from './core-auth-service-config';
 
+class AuthServiceConfigMock implements AuthServiceConfig {
+  apiKey: string = '';
+  authToken: string = '';
+  host: string = '//mock.rentdynamics.com';
+  secretKey: string = '';
+  userId: string = '';
+}
+
 class CoreAuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
   authToken: string = '';
@@ -53,6 +61,8 @@ describe('Service: RentplusApiService', () => {
       providers: [
         RentplusApiService,
         RentplusAuthService,
+        AuthService,
+        { provide: AuthServiceConfig, useClass: AuthServiceConfigMock },
         { provide: RentplusAuthServiceConfig, useClass: RentplusAuthServiceConfigMock },
         CoreApiService,
         CoreAuthService,
@@ -97,4 +107,52 @@ describe('Service: RentplusApiService', () => {
       //Assert
       expect(config.authToken).toEqual(authToken);
     }));
+
+  describe('mock backend', () => {
+    let backend: MockBackend;
+    let service: RentplusApiService;
+    let fakeResult: any[];
+    let response: Response;
+
+    beforeEach(inject([Http, XHRBackend, AuthService], (http: Http, be: MockBackend, authSvc: AuthService) => {
+      backend = be;
+      service = new RentplusApiService(authSvc, http);
+      fakeResult = [{ id: 1 }, { id: 2 }];
+      let options = new ResponseOptions({ status: 200, body: { data: fakeResult } });
+      response = new Response(options);
+    }));
+
+    it('should have expected fake results (then)', async(inject([], () => {
+      backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
+
+      service.get('/units').toPromise()
+        // .then(() => Promise.reject('deliberate'))
+        .then(results => {
+          expect(results.data.length).toBe(fakeResult.length,
+            'should have expected no. of results');
+        });
+    })));
+
+    it('should have expected fake results (Observable.do)', async(inject([], () => {
+      backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
+
+      service.put('/units', {}).do(results => {
+        expect(results.data.length).toBe(fakeResult.length,
+          'should have expected number of results');
+      })
+        .toPromise();
+    })));
+
+    it('should be OK returning no results', async(inject([], () => {
+      let resp = new Response(new ResponseOptions({ status: 200, body: { data: [] } }));
+      backend.connections.subscribe((c: MockConnection) => c.mockRespond(resp));
+
+      service.post('/units', {}).do(results => {
+        expect(results.data.length).toBe(0, 'should have no results');
+      })
+        .toPromise();
+    })));
+
+  });
+
 });

@@ -10,56 +10,42 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class ApiService {
 
-  constructor(public authService: AuthService, public http: Http) {
+  constructor(public authService: AuthService, public http: Http) { }
 
-  }
-
-  get(endpoint: string, options: RequestOptionsArgs = {}, responseType: string = 'json'): Observable<any> {
+  get(endpoint: string, options: RequestOptionsArgs = {}): Observable<any> {
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeaders(endpoint);
 
     return this.http.get(url, extend({
       headers: headers
-    }, options))
-      .map((response: Response) => {
-        return response[responseType]();
-      });
+    }, options));
   }
 
-  put(endpoint: string, body: any, options: RequestOptionsArgs = {}, responseType: string = 'json'): Observable<any> {
+  put(endpoint: string, body: any, options: RequestOptionsArgs = {}): Observable<any> {
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeaders(endpoint, body);
 
     return this.http.put(url, body, extend({
       headers: headers
-    }, options))
-      .map((response: Response) => {
-        return response[responseType]();
-      });
+    }, options));
   }
 
-  post(endpoint: string, body: any, options: RequestOptionsArgs = {}, responseType: string = 'json'): Observable<any> {
+  post(endpoint: string, body: any, options: RequestOptionsArgs = {}): Observable<any> {
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeaders(endpoint, body);
 
     return this.http.post(url, body, extend({
       headers: headers
-    }, options))
-      .map((response: Response) => {
-        return response[responseType]();
-      });
+    }, options));
   }
 
-  postWithoutAuth(endpoint: string, body: any, options: RequestOptionsArgs = {}, responseType: string = 'json'): Observable<any> {
+  postWithoutAuth(endpoint: string, body: any, options: RequestOptionsArgs = {}): Observable<any> {
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeadersWithoutAuth(endpoint, body);
 
     return this.http.post(url, body, extend({
       headers: headers
-    }, options))
-      .map((response: Response) => {
-        return response[responseType]();
-      });
+    }, options));
   }
 
   delete(endpoint: string, options: RequestOptionsArgs = {}): Observable<any> {
