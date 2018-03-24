@@ -167,7 +167,9 @@ describe('Service: ApiService', () => {
     it('should have expected fake results (then)', async(inject([], () => {
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
 
-      service.get('/units').toPromise()
+      service.get('/units').map((response: Response) => {
+        return response.json();
+      }).toPromise()
         // .then(() => Promise.reject('deliberate'))
         .then(results => {
           expect(results.data.length).toBe(fakeResult.length,
@@ -178,8 +180,9 @@ describe('Service: ApiService', () => {
     it('should have expected fake results (Observable.do)', async(inject([], () => {
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
 
-      service.get('/units')
-        .do(results => {
+      service.get('/units').map((response: Response) => {
+          return response.json();
+        }).do(results => {
           expect(results.data.length).toBe(fakeResult.length,
             'should have expected number of results');
         })
@@ -191,8 +194,9 @@ describe('Service: ApiService', () => {
       let resp = new Response(new ResponseOptions({ status: 200, body: { data: [] } }));
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(resp));
 
-      service.get('/units')
-        .do(results => {
+      service.get('/units').map((response: Response) => {
+          return response.json();
+        }).do(results => {
           expect(results.data.length).toBe(0, 'should have no results');
         })
         .toPromise();

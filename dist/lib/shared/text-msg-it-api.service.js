@@ -37,6 +37,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
         function TextMsgItApiService(authService, http) {
             return _super.call(this, authService, http) || this;
         }
+        TextMsgItApiService.prototype.get = function (endpoint, options, responseType) {
+            if (options === void 0) { options = {}; }
+            if (responseType === void 0) { responseType = 'json'; }
+            return _super.prototype.get.call(this, endpoint, options).map(function (response) {
+                return response[responseType]();
+            });
+        };
+        TextMsgItApiService.prototype.put = function (endpoint, body, options, responseType) {
+            if (options === void 0) { options = {}; }
+            if (responseType === void 0) { responseType = 'json'; }
+            return _super.prototype.put.call(this, endpoint, body, options).map(function (response) {
+                return response[responseType]();
+            });
+        };
+        TextMsgItApiService.prototype.post = function (endpoint, body, options, responseType) {
+            if (options === void 0) { options = {}; }
+            if (responseType === void 0) { responseType = 'json'; }
+            return _super.prototype.post.call(this, endpoint, body, options).map(function (response) {
+                return response[responseType]();
+            });
+        };
         TextMsgItApiService = __decorate([
             core_1.Injectable(),
             __metadata("design:paramtypes", [text_msg_it_auth_service_1.TextMsgItAuthService, http_1.Http])

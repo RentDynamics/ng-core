@@ -20,6 +20,9 @@
         post: function () {
             return Rx_1.Observable.from([]);
         },
+        postBlob: function () {
+            return Rx_1.Observable.from([]);
+        },
         postWithoutAuth: function () {
             return Rx_1.Observable.from([]);
         },

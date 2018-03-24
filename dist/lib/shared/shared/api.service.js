@@ -28,53 +28,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
             this.authService = authService;
             this.http = http;
         }
-        ApiService.prototype.get = function (endpoint, options, responseType) {
+        ApiService.prototype.get = function (endpoint, options) {
             if (options === void 0) { options = {}; }
-            if (responseType === void 0) { responseType = 'json'; }
             var url = this.getHost() + endpoint;
             var headers = this.authService.getAuthHeaders(endpoint);
             return this.http.get(url, helpers_1.extend({
                 headers: headers
-            }, options))
-                .map(function (response) {
-                return response[responseType]();
-            });
+            }, options));
         };
-        ApiService.prototype.put = function (endpoint, body, options, responseType) {
+        ApiService.prototype.put = function (endpoint, body, options) {
             if (options === void 0) { options = {}; }
-            if (responseType === void 0) { responseType = 'json'; }
             var url = this.getHost() + endpoint;
             var headers = this.authService.getAuthHeaders(endpoint, body);
             return this.http.put(url, body, helpers_1.extend({
                 headers: headers
-            }, options))
-                .map(function (response) {
-                return response[responseType]();
-            });
+            }, options));
         };
-        ApiService.prototype.post = function (endpoint, body, options, responseType) {
+        ApiService.prototype.post = function (endpoint, body, options) {
             if (options === void 0) { options = {}; }
-            if (responseType === void 0) { responseType = 'json'; }
             var url = this.getHost() + endpoint;
             var headers = this.authService.getAuthHeaders(endpoint, body);
             return this.http.post(url, body, helpers_1.extend({
                 headers: headers
-            }, options))
-                .map(function (response) {
-                return response[responseType]();
-            });
+            }, options));
         };
-        ApiService.prototype.postWithoutAuth = function (endpoint, body, options, responseType) {
+        ApiService.prototype.postWithoutAuth = function (endpoint, body, options) {
             if (options === void 0) { options = {}; }
-            if (responseType === void 0) { responseType = 'json'; }
             var url = this.getHost() + endpoint;
             var headers = this.authService.getAuthHeadersWithoutAuth(endpoint, body);
             return this.http.post(url, body, helpers_1.extend({
                 headers: headers
-            }, options))
-                .map(function (response) {
-                return response[responseType]();
-            });
+            }, options));
         };
         ApiService.prototype.delete = function (endpoint, options) {
             if (options === void 0) { options = {}; }

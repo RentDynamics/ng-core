@@ -130,15 +130,18 @@
             }));
             it('should have expected fake results (then)', testing_1.async(testing_1.inject([], function () {
                 backend.connections.subscribe(function (c) { return c.mockRespond(response); });
-                service.get('/units').toPromise()
+                service.get('/units').map(function (response) {
+                    return response.json();
+                }).toPromise()
                     .then(function (results) {
                     expect(results.data.length).toBe(fakeResult.length, 'should have expected no. of results');
                 });
             })));
             it('should have expected fake results (Observable.do)', testing_1.async(testing_1.inject([], function () {
                 backend.connections.subscribe(function (c) { return c.mockRespond(response); });
-                service.get('/units')
-                    .do(function (results) {
+                service.get('/units').map(function (response) {
+                    return response.json();
+                }).do(function (results) {
                     expect(results.data.length).toBe(fakeResult.length, 'should have expected number of results');
                 })
                     .toPromise();
@@ -146,8 +149,9 @@
             it('should be OK returning no results', testing_1.async(testing_1.inject([], function () {
                 var resp = new http_1.Response(new http_1.ResponseOptions({ status: 200, body: { data: [] } }));
                 backend.connections.subscribe(function (c) { return c.mockRespond(resp); });
-                service.get('/units')
-                    .do(function (results) {
+                service.get('/units').map(function (response) {
+                    return response.json();
+                }).do(function (results) {
                     expect(results.data.length).toBe(0, 'should have no results');
                 })
                     .toPromise();

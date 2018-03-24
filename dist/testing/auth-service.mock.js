@@ -11,12 +11,25 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     var Rx_1 = require("rxjs/Rx");
     exports.AuthServiceMock = {
+        authToken: '',
+        secretKey: '',
+        userId: '',
+        formatPayload: function () { },
+        getNonce: function () { },
+        getAuthHeaders: function () { },
+        getAuthHeadersWithoutAuth: function () { },
+        logout: function () { },
+        login: function () { },
+        ssoLogin: function () {
+            return Rx_1.Observable.from([]);
+        },
+        loginCallback: function () { },
+        isAuthenticated: function () { },
         forgotPassword: function () {
             return Rx_1.Observable.from([]);
         },
-        ssoLogin: function () {
-            return Rx_1.Observable.from([]);
-        }
+        getHost: function () { },
+        errorHandler: function () { }
     };
 });
 //# sourceMappingURL=auth-service.mock.js.map

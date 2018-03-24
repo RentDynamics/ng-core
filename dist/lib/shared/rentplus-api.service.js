@@ -38,6 +38,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
         function RentplusApiService(authService, http) {
             return _super.call(this, authService, http) || this;
         }
+        RentplusApiService.prototype.get = function (endpoint, options, responseType) {
+            if (options === void 0) { options = {}; }
+            if (responseType === void 0) { responseType = 'json'; }
+            return _super.prototype.get.call(this, endpoint, options).map(function (response) {
+                return response[responseType]();
+            });
+        };
+        RentplusApiService.prototype.put = function (endpoint, body, options, responseType) {
+            if (options === void 0) { options = {}; }
+            if (responseType === void 0) { responseType = 'json'; }
+            return _super.prototype.put.call(this, endpoint, body, options).map(function (response) {
+                return response[responseType]();
+            });
+        };
+        RentplusApiService.prototype.post = function (endpoint, body, options, responseType) {
+            if (options === void 0) { options = {}; }
+            if (responseType === void 0) { responseType = 'json'; }
+            return _super.prototype.post.call(this, endpoint, body, options).map(function (response) {
+                return response[responseType]();
+            });
+        };
+        RentplusApiService.prototype.postBlob = function (endpoint, body, options) {
+            if (options === void 0) { options = {}; }
+            return _super.prototype.post.call(this, endpoint, body, options);
+        };
         RentplusApiService = __decorate([
             core_1.Injectable(),
             __metadata("design:paramtypes", [rentplus_auth_service_1.RentplusAuthService, http_1.Http])

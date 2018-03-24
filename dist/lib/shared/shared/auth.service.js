@@ -99,7 +99,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
             headers.append('x-rd-api-key', this.config.apiKey);
             headers.append('x-rd-api-nonce', nonce);
             headers.append('x-rd-timestamp', timestamp.toString());
-            //headers.append('x-rd-super-key', 'rd-test-sk');
             return headers;
         };
         AuthService.prototype.getAuthHeadersWithoutAuth = function (url, payload) {
@@ -112,7 +111,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
             headers.append('x-rd-api-key', this.config.apiKey);
             headers.append('x-rd-api-nonce', nonce);
             headers.append('x-rd-timestamp', timestamp.toString());
-            //headers.append('x-rd-super-key', 'rd-test-sk');
             return headers;
         };
         AuthService.prototype.logout = function () {

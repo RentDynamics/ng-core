@@ -1,113 +1,122 @@
 <?xml version="1.0"?>
-<testsuite name="PhantomJS 2.1.1 (Mac OS X 0.0.0)" package="@rd/compiler" timestamp="2018-03-24T01:41:27" id="0" hostname="Chase-Gibbons-MacBook-Pro.local" tests="101" errors="0" failures="0" time="0.744">
+<testsuite name="PhantomJS 2.1.1 (Mac OS X 0.0.0)" package="@rd/compiler" timestamp="2018-03-24T01:55:23" id="0" hostname="Chase-Gibbons-MacBook-Pro.local" tests="110" errors="0" failures="0" time="0.824">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1"/>
   </properties>
-  <testcase name="Helpers extend({ id: 1 }, { name: &quot;one&quot; }) returns { id: 1, name: &quot;one&quot; }" time="0.005" classname="@rd/compiler.Helpers"/>
-  <testcase name="Helpers isBoolean(true) resolves truthy" time="0.002" classname="@rd/compiler.Helpers"/>
+  <testcase name="Helpers extend({ id: 1 }, { name: &quot;one&quot; }) returns { id: 1, name: &quot;one&quot; }" time="0.004" classname="@rd/compiler.Helpers"/>
+  <testcase name="Helpers isBoolean(true) resolves truthy" time="0.001" classname="@rd/compiler.Helpers"/>
   <testcase name="Helpers isDate(new Date()) resolves truthy" time="0.002" classname="@rd/compiler.Helpers"/>
   <testcase name="Helpers isString(&quot;turbonemesis&quot;) resolves truthy" time="0.001" classname="@rd/compiler.Helpers"/>
   <testcase name="Helpers equals(&quot;turbonemesis&quot;, &quot;turbonemesis&quot;) resolves truthy" time="0.002" classname="@rd/compiler.Helpers"/>
   <testcase name="Helpers equals(1, 1) resolves truthy" time="0.001" classname="@rd/compiler.Helpers"/>
   <testcase name="Helpers equals(1, 2) resolves falsy" time="0.001" classname="@rd/compiler.Helpers"/>
   <testcase name="Helpers equals([1, 2], [1, 2]) resolves truthy" time="0.001" classname="@rd/compiler.Helpers"/>
-  <testcase name="Helpers equals([1, 2], [2, 2]) resolves falsy" time="0.001" classname="@rd/compiler.Helpers"/>
-  <testcase name="Helpers equals({ id: 1 }, { id: 1 }) resolves truthy" time="0.003" classname="@rd/compiler.Helpers"/>
+  <testcase name="Helpers equals([1, 2], [2, 2]) resolves falsy" time="0.002" classname="@rd/compiler.Helpers"/>
+  <testcase name="Helpers equals({ id: 1 }, { id: 1 }) resolves truthy" time="0.002" classname="@rd/compiler.Helpers"/>
   <testcase name="Helpers equals({ id: 1 }, { id: 2 }) resolves falsy" time="0.001" classname="@rd/compiler.Helpers"/>
+  <testcase name="Pipe: OrderBy create an instance" time="0.001" classname="@rd/compiler.Pipe: OrderBy"/>
+  <testcase name="Pipe: OrderBy transforms array correctly" time="0.002" classname="@rd/compiler.Pipe: OrderBy"/>
   <testcase name="Pipe: OrderBy create an instance" time="0.001" classname="@rd/compiler.Pipe: OrderBy"/>
   <testcase name="Pipe: OrderBy should sort booleans" time="0.002" classname="@rd/compiler.Pipe: OrderBy"/>
   <testcase name="Pipe: OrderBy should sort strings" time="0.002" classname="@rd/compiler.Pipe: OrderBy"/>
   <testcase name="Pipe: OrderBy should sort numbers" time="0.001" classname="@rd/compiler.Pipe: OrderBy"/>
-  <testcase name="Pipe: OrderBy create an instance" time="0.001" classname="@rd/compiler.Pipe: OrderBy"/>
-  <testcase name="Pipe: OrderBy transforms array correctly" time="0.001" classname="@rd/compiler.Pipe: OrderBy"/>
-  <testcase name="Service: Immutable should ..." time="0.04" classname="@rd/compiler.Service: Immutable"/>
-  <testcase name="Service: Immutable delete() should return a new immutable array with the item deleted at the index specified" time="0.017" classname="@rd/compiler.Service: Immutable"/>
-  <testcase name="Service: Immutable concat() should concatenate the two arrays and be different from the original reference" time="0.016" classname="@rd/compiler.Service: Immutable"/>
-  <testcase name="Service: OrderBy should ..." time="0.014" classname="@rd/compiler.Service: OrderBy"/>
+  <testcase name="Service: Immutable should ..." time="0.037" classname="@rd/compiler.Service: Immutable"/>
+  <testcase name="Service: Immutable delete() should return a new immutable array with the item deleted at the index specified" time="0.016" classname="@rd/compiler.Service: Immutable"/>
+  <testcase name="Service: Immutable concat() should concatenate the two arrays and be different from the original reference" time="0.017" classname="@rd/compiler.Service: Immutable"/>
+  <testcase name="Service: OrderBy should ..." time="0.015" classname="@rd/compiler.Service: OrderBy"/>
   <testcase name="CoreApiSelector should create an instance" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() formats &quot;includes&quot; correctly" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() formats &quot;fields&quot; correctly" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() formats &quot;moment()&quot; filter correctly" time="0.006" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() formats parameterized endpoint correctly" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
-  <testcase name="CoreApiSelector stringify() formats changing parameterized endpoint correctly (w/getter)" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
-  <testcase name="CoreApiSelector stringify() maintains its include, which are statically defined in an overriding class, when other parameters are passed in dynamically on initialization" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
+  <testcase name="CoreApiSelector stringify() formats changing parameterized endpoint correctly (w/getter)" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
+  <testcase name="CoreApiSelector stringify() maintains its include, which are statically defined in an overriding class, when other parameters are passed in dynamically on initialization" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() formats multiple params correctly" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
-  <testcase name="CoreApiSelector stringify() outputs &quot;endpoint&quot; correctly when the endpoint is defined in its overriding class" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
-  <testcase name="CoreApiSelector stringify() handles { filter: { bedrooms: 0 } } correctly" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
+  <testcase name="CoreApiSelector stringify() outputs &quot;endpoint&quot; correctly when the endpoint is defined in its overriding class" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
+  <testcase name="CoreApiSelector stringify() handles { filter: { bedrooms: 0 } } correctly" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() handles { filter: { bedrooms: null } } correctly" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() handles { filter: { bedrooms: undefined } } correctly" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() handles { filter: { bedrooms: '' } } correctly" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
-  <testcase name="CoreApiSelector stringify() handles distinct=true correctly" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
+  <testcase name="CoreApiSelector stringify() handles distinct=true correctly" time="0.003" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() handles distinct=false correctly" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector addFilter() adds filter correctly when both key and value provided" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector addFilter() adds filter correctly when only key provided" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() nested communityBasket -> basketId array filter is not included when basketId array is empty" time="0.001" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="CoreApiSelector stringify() grandaddy o thy all" time="0.002" classname="@rd/compiler.CoreApiSelector"/>
   <testcase name="Service: RentplusAuthService can instantiate service when inject service" time="0.013" classname="@rd/compiler.Service: RentplusAuthService"/>
-  <testcase name="Service: RentplusAuthService service config should be instanceof RentplusAuthServiceConfigMock" time="0.009" classname="@rd/compiler.Service: RentplusAuthService"/>
-  <testcase name="Service: RentplusAuthService service config host should be &quot;//mock.rentdynamics.com&quot;" time="0.009" classname="@rd/compiler.Service: RentplusAuthService"/>
-  <testcase name="Service: RentplusAuthService getHost should return //mock.rentdynamics.com from provided config" time="0.01" classname="@rd/compiler.Service: RentplusAuthService"/>
-  <testcase name="Service: CoreAuthService can instantiate service when inject service" time="0.02" classname="@rd/compiler.Service: CoreAuthService"/>
-  <testcase name="Service: CoreAuthService service config should be instanceof CoreAuthServiceConfigMock" time="0.016" classname="@rd/compiler.Service: CoreAuthService"/>
-  <testcase name="Service: CoreAuthService service config host should be &quot;//mock.rentdynamics.com&quot;" time="0.014" classname="@rd/compiler.Service: CoreAuthService"/>
-  <testcase name="Service: CoreAuthService getHost should return //mock.rentdynamics.com from provided config" time="0.015" classname="@rd/compiler.Service: CoreAuthService"/>
-  <testcase name="Service: TextMsgItAuthService can instantiate service when inject service" time="0.011" classname="@rd/compiler.Service: TextMsgItAuthService"/>
+  <testcase name="Service: RentplusAuthService service config should be instanceof RentplusAuthServiceConfigMock" time="0.01" classname="@rd/compiler.Service: RentplusAuthService"/>
+  <testcase name="Service: RentplusAuthService service config host should be &quot;//mock.rentdynamics.com&quot;" time="0.008" classname="@rd/compiler.Service: RentplusAuthService"/>
+  <testcase name="Service: RentplusAuthService getHost should return //mock.rentdynamics.com from provided config" time="0.026" classname="@rd/compiler.Service: RentplusAuthService"/>
+  <testcase name="Service: CoreAuthService can instantiate service when inject service" time="0.015" classname="@rd/compiler.Service: CoreAuthService"/>
+  <testcase name="Service: CoreAuthService service config should be instanceof CoreAuthServiceConfigMock" time="0.01" classname="@rd/compiler.Service: CoreAuthService"/>
+  <testcase name="Service: CoreAuthService service config host should be &quot;//mock.rentdynamics.com&quot;" time="0.011" classname="@rd/compiler.Service: CoreAuthService"/>
+  <testcase name="Service: CoreAuthService getHost should return //mock.rentdynamics.com from provided config" time="0.008" classname="@rd/compiler.Service: CoreAuthService"/>
+  <testcase name="Service: TextMsgItAuthService can instantiate service when inject service" time="0.009" classname="@rd/compiler.Service: TextMsgItAuthService"/>
   <testcase name="Service: TextMsgItAuthService service config should be instanceof TextMsgItAuthServiceConfigMock" time="0.009" classname="@rd/compiler.Service: TextMsgItAuthService"/>
-  <testcase name="Service: TextMsgItAuthService service config host should be &quot;//mock.rentdynamics.com&quot;" time="0.008" classname="@rd/compiler.Service: TextMsgItAuthService"/>
+  <testcase name="Service: TextMsgItAuthService service config host should be &quot;//mock.rentdynamics.com&quot;" time="0.007" classname="@rd/compiler.Service: TextMsgItAuthService"/>
   <testcase name="Service: TextMsgItAuthService getHost should return //mock.rentdynamics.com from provided config" time="0.008" classname="@rd/compiler.Service: TextMsgItAuthService"/>
-  <testcase name="Service: AuthService can instantiate service when inject service" time="0.009" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService formatPayload should alphabetize items in dictionary" time="0.007" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService formatPayload should alphabetize nested items" time="0.007" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService formatPayload should alphabetize keys even when their values are null" time="0.007" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService formatPayload should remove spaces from formatted items" time="0.008" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService can instantiate service when inject service" time="0.007" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService formatPayload should alphabetize items in dictionary" time="0.009" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService formatPayload should alphabetize nested items" time="0.008" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService formatPayload should alphabetize keys even when their values are null" time="0.008" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService formatPayload should remove spaces from formatted items" time="0.006" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService formatPayload should pass with Array inside of object" time="0.01" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService getNonce should return hash of timestamp, url, payload and secret key" time="0.011" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService getNonce should return hash of timestamp, url, payload and secret key" time="0.01" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService getNonce should return hash of timestamp, url and secret key if no payload exists" time="0.007" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService getAuthHeaders returns authorization header" time="0.01" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService getAuthHeaders returns x-rd-api-key header" time="0.018" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService getAuthHeaders returns authorization header" time="0.02" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService getAuthHeaders returns x-rd-api-key header" time="0.008" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService getAuthHeaders returns x-rd-api-nonce header" time="0.009" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService getAuthHeaders returns x-rd-timestamp header" time="0.008" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService getAuthHeadersWithoutAuth returns x-rd-api-key header" time="0.008" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService getAuthHeadersWithoutAuth returns x-rd-api-nonce header" time="0.007" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService getAuthHeadersWithoutAuth returns x-rd-api-key header" time="0.006" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService getAuthHeadersWithoutAuth returns x-rd-api-nonce header" time="0.006" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService getAuthHeadersWithoutAuth returns x-rd-timestamp header" time="0.008" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService logout should delete authToken to make isAuthenticated return false" time="0.007" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService login should make a request to //mock.rentdynamics.com" time="0.011" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService login should use JsSha to hide password and then POST it" time="0.007" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService ssoLogin should call http" time="0.015" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService ssoLogin should return an observable that we can subscribe to" time="0.008" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService forgotPassword should send a POST to //mock.rentdynamics.com/auth/reset_password" time="0.009" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService login should use JsSha to hide password and then POST it" time="0.008" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService ssoLogin should call http" time="0.013" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService ssoLogin should return an observable that we can subscribe to" time="0.009" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService forgotPassword should send a POST to //mock.rentdynamics.com/auth/reset_password" time="0.008" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService forgotPassword should send a POST to //mock.rentdynamics.com/auth/reset_password with an object of the username" time="0.007" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Service: AuthService forgotPassword should pass endpoint not url to getAuthHeadersWithoutAuth()" time="0.007" classname="@rd/compiler.Service: AuthService"/>
+  <testcase name="Service: AuthService forgotPassword should pass endpoint not url to getAuthHeadersWithoutAuth()" time="0.006" classname="@rd/compiler.Service: AuthService"/>
   <testcase name="Service: AuthService getHost should return //mock.rentdynamics.com from provided config" time="0.006" classname="@rd/compiler.Service: AuthService"/>
-  <testcase name="Directive: CoreApiDataLayer should create an instance" time="0.009" classname="@rd/compiler.Directive: CoreApiDataLayer"/>
-  <testcase name="Service: CoreApiService can instantiate service when inject service" time="0.019" classname="@rd/compiler.Service: CoreApiService"/>
-  <testcase name="Service: RentplusApiService can instantiate service when inject service" time="0.01" classname="@rd/compiler.Service: RentplusApiService"/>
-  <testcase name="Service: RentplusApiService RentplusApiService getHost() should return &quot;//api.rentplus.com&quot;" time="0.008" classname="@rd/compiler.Service: RentplusApiService"/>
-  <testcase name="Service: RentplusApiService CoreApiService getHost() should return &quot;//core.rentdynamics.com&quot;" time="0.009" classname="@rd/compiler.Service: RentplusApiService"/>
+  <testcase name="Directive: CoreApiDataLayer should create an instance" time="0.02" classname="@rd/compiler.Directive: CoreApiDataLayer"/>
+  <testcase name="Service: CoreApiService can instantiate service when inject service" time="0.008" classname="@rd/compiler.Service: CoreApiService"/>
+  <testcase name="Service: CoreApiService mock backend should have expected fake results (then)" time="0.011" classname="@rd/compiler.Service: CoreApiService"/>
+  <testcase name="Service: CoreApiService mock backend should have expected fake results (Observable.do)" time="0.01" classname="@rd/compiler.Service: CoreApiService"/>
+  <testcase name="Service: CoreApiService mock backend should be OK returning no results" time="0.012" classname="@rd/compiler.Service: CoreApiService"/>
+  <testcase name="Service: RentplusApiService can instantiate service when inject service" time="0.007" classname="@rd/compiler.Service: RentplusApiService"/>
+  <testcase name="Service: RentplusApiService RentplusApiService getHost() should return &quot;//api.rentplus.com&quot;" time="0.007" classname="@rd/compiler.Service: RentplusApiService"/>
+  <testcase name="Service: RentplusApiService CoreApiService getHost() should return &quot;//core.rentdynamics.com&quot;" time="0.01" classname="@rd/compiler.Service: RentplusApiService"/>
   <testcase name="Service: RentplusApiService CoreAuthServiceConfig host should be &quot;//core.rentdynamics.com&quot;" time="0.008" classname="@rd/compiler.Service: RentplusApiService"/>
   <testcase name="Service: RentplusApiService RentplusAuthServiceConfig host should be &quot;//api.rentplus.com&quot;" time="0.008" classname="@rd/compiler.Service: RentplusApiService"/>
   <testcase name="Service: RentplusApiService RentplusAuthServiceConfig authToken changes should propegate across all services" time="0.008" classname="@rd/compiler.Service: RentplusApiService"/>
-  <testcase name="Service: TextMsgItApiService can instantiate service when inject service" time="0.01" classname="@rd/compiler.Service: TextMsgItApiService"/>
-  <testcase name="Service: TextMsgItApiService TextMsgItApiService getHost() should return &quot;//textmsgit.rentdynamics.com&quot;" time="0.009" classname="@rd/compiler.Service: TextMsgItApiService"/>
-  <testcase name="Service: TextMsgItApiService CoreApiService getHost() should return &quot;//core.rentdynamics.com&quot;" time="0.008" classname="@rd/compiler.Service: TextMsgItApiService"/>
-  <testcase name="Service: TextMsgItApiService CoreAuthServiceConfig host should be &quot;//core.rentdynamics.com&quot;" time="0.009" classname="@rd/compiler.Service: TextMsgItApiService"/>
-  <testcase name="Service: TextMsgItApiService TextMsgItAuthServiceConfig host should be &quot;//textmsgit.rentdynamics.com&quot;" time="0.008" classname="@rd/compiler.Service: TextMsgItApiService"/>
-  <testcase name="Service: TextMsgItApiService TextMsgItAuthServiceConfig authToken changes should propegate across all services" time="0.01" classname="@rd/compiler.Service: TextMsgItApiService"/>
-  <testcase name="Service: ApiService can instantiate service when inject service" time="0.009" classname="@rd/compiler.Service: ApiService"/>
-  <testcase name="Service: ApiService can instantiate service with &quot;new&quot;" time="0.009" classname="@rd/compiler.Service: ApiService"/>
+  <testcase name="Service: RentplusApiService mock backend should have expected fake results (then)" time="0.009" classname="@rd/compiler.Service: RentplusApiService"/>
+  <testcase name="Service: RentplusApiService mock backend should have expected fake results (Observable.do)" time="0.012" classname="@rd/compiler.Service: RentplusApiService"/>
+  <testcase name="Service: RentplusApiService mock backend should be OK returning no results" time="0.012" classname="@rd/compiler.Service: RentplusApiService"/>
+  <testcase name="Service: TextMsgItApiService can instantiate service when inject service" time="0.007" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: TextMsgItApiService TextMsgItApiService getHost() should return &quot;//textmsgit.rentdynamics.com&quot;" time="0.019" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: TextMsgItApiService CoreApiService getHost() should return &quot;//core.rentdynamics.com&quot;" time="0.01" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: TextMsgItApiService CoreAuthServiceConfig host should be &quot;//core.rentdynamics.com&quot;" time="0.008" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: TextMsgItApiService TextMsgItAuthServiceConfig host should be &quot;//textmsgit.rentdynamics.com&quot;" time="0.01" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: TextMsgItApiService TextMsgItAuthServiceConfig authToken changes should propegate across all services" time="0.008" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: TextMsgItApiService mock backend should have expected fake results (then)" time="0.012" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: TextMsgItApiService mock backend should have expected fake results (Observable.do)" time="0.008" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: TextMsgItApiService mock backend should be OK returning no results" time="0.007" classname="@rd/compiler.Service: TextMsgItApiService"/>
+  <testcase name="Service: ApiService can instantiate service when inject service" time="0.008" classname="@rd/compiler.Service: ApiService"/>
+  <testcase name="Service: ApiService can instantiate service with &quot;new&quot;" time="0.006" classname="@rd/compiler.Service: ApiService"/>
   <testcase name="Service: ApiService can provide the mockBackend as XHRBackend" time="0.009" classname="@rd/compiler.Service: ApiService"/>
-  <testcase name="Service: ApiService should should make a call to AuthService.getAuthHeadersWithoutAuth on postWithoutAuth" time="0.022" classname="@rd/compiler.Service: ApiService"/>
+  <testcase name="Service: ApiService should should make a call to AuthService.getAuthHeadersWithoutAuth on postWithoutAuth" time="0.015" classname="@rd/compiler.Service: ApiService"/>
   <testcase name="Service: ApiService post with search params should invoke getAuthHeaders with query string" time="0" classname="@rd/compiler.Service: ApiService">
     <skipped/>
   </testcase>
-  <testcase name="Service: ApiService post without search params should invoke getAuthHeaders without query string" time="0.012" classname="@rd/compiler.Service: ApiService"/>
+  <testcase name="Service: ApiService post without search params should invoke getAuthHeaders without query string" time="0.011" classname="@rd/compiler.Service: ApiService"/>
   <testcase name="Service: ApiService post with search params should invoke http post with query string" time="0" classname="@rd/compiler.Service: ApiService">
     <skipped/>
   </testcase>
-  <testcase name="Service: ApiService mock backend should have expected fake results (then)" time="0.016" classname="@rd/compiler.Service: ApiService"/>
-  <testcase name="Service: ApiService mock backend should have expected fake results (Observable.do)" time="0.013" classname="@rd/compiler.Service: ApiService"/>
-  <testcase name="Service: ApiService mock backend should be OK returning no results" time="0.011" classname="@rd/compiler.Service: ApiService"/>
-  <testcase name="Service: ApiService mock backend should treat 404 as an Observable error" time="0.011" classname="@rd/compiler.Service: ApiService"/>
+  <testcase name="Service: ApiService mock backend should have expected fake results (then)" time="0.008" classname="@rd/compiler.Service: ApiService"/>
+  <testcase name="Service: ApiService mock backend should have expected fake results (Observable.do)" time="0.011" classname="@rd/compiler.Service: ApiService"/>
+  <testcase name="Service: ApiService mock backend should be OK returning no results" time="0.025" classname="@rd/compiler.Service: ApiService"/>
+  <testcase name="Service: ApiService mock backend should treat 404 as an Observable error" time="0.017" classname="@rd/compiler.Service: ApiService"/>
   <system-out>
     <![CDATA[
 ]]>
