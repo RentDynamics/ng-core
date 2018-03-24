@@ -10,6 +10,9 @@ export const CoreApiServiceMock = {
     post: () => {
             return Observable.from([]);
           },
+    postBlob: () => {
+            return Observable.from([]);
+          },
     postWithoutAuth: () => {
             return Observable.from([]);
           },
