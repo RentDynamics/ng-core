@@ -2,7 +2,9 @@
   "name": "@rd/core",
   "version": "0.0.0-development",
   "main": "bundles/core.umd.js",
-  "repository": "https://github.com/RentDynamics/ng-core",
+  "repository": {
+    "url": "https://github.com/RentDynamics/ng-core"
+  },
   "typings": "public_api.d.ts",
   "private": false,
   "author": {
@@ -32,7 +34,7 @@
   "peerDependencies": {
     "@angular/core": ">= 5.0.0",
     "@angular/common": ">= 5.0.0",
-    "jssha": "2.x",
+    "jssha": ">= 2.x",
     "rxjs": ">= 5.0.0"
   },
   "devDependencies": {
