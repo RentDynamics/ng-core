@@ -1,0 +1,22 @@
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports", "rxjs/Rx"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var Rx_1 = require("rxjs/Rx");
+    exports.AuthServiceMock = {
+        forgotPassword: function () {
+            return Rx_1.Observable.from([]);
+        },
+        ssoLogin: function () {
+            return Rx_1.Observable.from([]);
+        }
+    };
+});
+//# sourceMappingURL=auth-service.mock.js.map
