@@ -1,6 +1,6 @@
-# Contributing to Angular Material
+# Contributing to rd-angular
 
-We would love for you to contribute to Angular Material and help make it ever better!
+We would love for you to contribute to this repo and help make it ever better!
 As a contributor, here are the guidelines we would like you to follow:
 
  - [Code of Conduct](#coc)
@@ -31,7 +31,7 @@ If you would like to chat about the question in real-time, you can reach out via
 
 ## <a name="issue"></a> Found an Issue?
 If you find a bug in the source code or a mistake in the documentation, you can help us by
-[submitting an issue](#submit-issue) to our [GitHub Repository][github]. Including an issue 
+[submitting an issue](#submit-issue) to our [GitHub Repository][github]. Including an issue
 reproduction (via CodePen, JsBin, Plunkr, etc.) is the absolute best way to help the team quickly
 diagnose the problem. Screenshots are also helpful.
 
@@ -40,7 +40,7 @@ You can help the team even more and [submit a Pull Request](#submit-pr) with a f
 ## <a name="feature"></a> Want a Feature?
 You can *request* a new feature by [submitting an issue](#submit-issue) to our [GitHub
 Repository][github]. If you would like to *implement* a new feature, please submit an issue with
-a proposal for your work first, to be sure that we can use it. 
+a proposal for your work first, to be sure that we can use it.
 Please consider what kind of change it is:
 
 * For a **Major Feature**, first open an issue and outline your proposal so that it can be
