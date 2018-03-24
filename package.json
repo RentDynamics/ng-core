@@ -17,6 +17,7 @@
     "build": "./build.sh",
     "commit": "git-cz",
     "test": "./test.sh --single-run true",
+    "posttest": "npx codecov -t 6a68a5ff-cdda-4c59-b6d2-df4e6fca340a",
     "prepush": "npm test",
     "semantic-release": "cd ./dist && semantic-release"
   },
