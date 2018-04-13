@@ -10,7 +10,7 @@ import { CoreAuthService } from './core-auth.service';
 @Injectable()
 export class CoreApiService extends ApiService {
 
-  constructor(authService: CoreAuthService, http: Http) {  
+  constructor(authService: CoreAuthService, http: Http) {
     super(authService, http);
   }
 
