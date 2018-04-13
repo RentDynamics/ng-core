@@ -10,6 +10,33 @@ describe('Helpers', () => {
     expect(extend({ id: 1 }, { name: "one" })).toEqual({ id: 1, name: "one" });
   });
 
+  it('extend() is immutable', () => {
+    let obj1 = { id: 1 };
+    let obj2 = { name: "one" };
+    let result = extend(obj1, obj2);
+    expect(obj1).toEqual({ id: 1 });
+    expect(obj2).toEqual({ name: "one" });
+    expect(result).toEqual({ id: 1, name: "one" });
+  });
+
+  it('merge() is immutable', () => {
+    let obj1 = { id: 1 };
+    let obj2 = { name: "one", results: [{
+      id: 2,
+      name: "two"
+    }] };
+    let result = extend(obj1, obj2);
+    expect(obj1).toEqual({ id: 1 });
+    expect(obj2).toEqual({ name: "one", results: [{
+      id: 2,
+      name: "two"
+    }] });
+    expect(result).toEqual({ id: 1, name: "one", results: [{
+      id: 2,
+      name: "two"
+    }] });
+  });
+
   it('isBoolean(true) resolves truthy', () => {
     expect(isBoolean(true)).toBeTruthy();
   });

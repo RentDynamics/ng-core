@@ -93,12 +93,12 @@ function baseExtend(dst, objs, deep) {
 
 export const extend = function extend(obj1: {}, obj2: {}, obj3?: {}, obj4?: {}) {
   let args: any = arguments && arguments.length ? arguments : [];
-  return baseExtend(obj1, slice.call(arguments, 1), false);
+  return baseExtend(JSON.parse(JSON.stringify(obj1)), JSON.parse(JSON.stringify(slice.call(arguments, 1))), false);
 }
 
 export const merge = function merge(obj1: {}, obj2: {}, obj3?: {}, obj4?: {}) {
   let args: any = arguments && arguments.length ? arguments : [];
-  return baseExtend(obj1, slice.call(arguments, 1), true);
+  return baseExtend(JSON.parse(JSON.stringify(obj1)), JSON.parse(JSON.stringify(slice.call(arguments, 1))), true);
 }
 
 // test doesn't work
