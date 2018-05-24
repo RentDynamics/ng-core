@@ -8,7 +8,7 @@ export class ImmutableService {
   copy(arr) {
     if (!arr)
       return [];
-    return [...arr];
+    return JSON.parse(JSON.stringify(arr));
   }
 
   concat(arr, items) {
