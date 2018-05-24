@@ -41,7 +41,7 @@ describe('Service: Immutable', () => {
     let resultAry: any[];
     /* Act */
     resultAry = service.copy(initialAry);
-    resultAry[1].steps[0].description = 'hello secondary!!';
+    resultAry[1].steps[0].description = 'hello secondary!!!!';
     /* Assert */
     expect(resultAry).toBeTruthy();
     expect(resultAry.length).toBe(3);
