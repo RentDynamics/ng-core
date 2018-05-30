@@ -149,7 +149,7 @@ export class AuthService {
     }
 
     forgotPassword(username: string) {
-        let user = { username: username };
+        let user = {username: username};
         let endpoint = '/auth/reset_password';
         let url = this.getHost() + endpoint;
         let headers = this.getAuthHeadersWithoutAuth(endpoint, user);
