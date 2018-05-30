@@ -24,6 +24,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { AuthService } from './auth.service';
 import { AuthServiceConfig } from './auth-service-config';
+import {formattedError} from "@angular/compiler";
 
 class AuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
@@ -138,6 +139,86 @@ describe('Service: AuthService', () => {
       // Assert
       expect(Object.keys(formattedPayload['blue'][0])[0]).toEqual('pink');
 
+    }));
+
+    it('formatPayload should pass with Array of primitive values',
+        inject([AuthService], (service: AuthService) => {
+            // Arrange
+            var payload = {
+                orange: 5,
+                blue: [1, 5, 2],
+                communityId: 1909,
+                transunionRentFilingNumber: "1909",
+                transunionUtilityFilingNumber: null,
+                transunionActive: true,
+                transunionUtilityActive: false,
+                experianActive: false,
+                active: true,
+                source: "source",
+                backReport: true,
+                utilityBillable: true,
+                id: 686,
+                utilityCollectTypeId: null,
+                subscriptionTypeId: 2,
+                filingStatusTypeId: 1
+            };
+            // Act
+            let formattedPayload = service.formatPayload(payload);
+            // Assert
+            expect(formattedPayload['orange']).toEqual(5);
+            expect(formattedPayload['blue'][0]).toEqual(1);
+            expect(formattedPayload['blue'][1]).toEqual(5);
+            expect(formattedPayload['blue'][2]).toEqual(2);
+            expect(formattedPayload['communityId']).toEqual(1909);
+            expect(formattedPayload['source']).toEqual("source");
+            expect(formattedPayload['utilityCollectTypeId']).toEqual(null);
+            expect(formattedPayload['transunionUtilityFilingNumber']).toEqual(null);
+            expect(formattedPayload['active']).toEqual(true);
+            expect(formattedPayload['backReport']).toEqual(true);
+            expect(formattedPayload['utilityBillable']).toEqual(true);
+            expect(formattedPayload['id']).toEqual(686);
+            expect(formattedPayload['utilityCollectTypeId']).toEqual(null);
+            expect(formattedPayload['subscriptionTypeId']).toEqual(2);
+            expect(formattedPayload['filingStatusTypeId']).toEqual(1);
+
+        }));
+
+    it('getNonce should handle arrays of primitive values',
+        inject([AuthService], function (service: AuthService) {
+        // Arrange
+        var payload = {
+            orange: 5,
+            blue: [1, 5, 2],
+            communityId: 1909,
+            transunionRentFilingNumber: "1909",
+            transunionUtilityFilingNumber: null,
+            transunionActive: true,
+            transunionUtilityActive: false,
+            experianActive: false,
+            active: true,
+            source: "source",
+            backReport: true,
+            utilityBillable: true,
+            id: 686,
+            utilityCollectTypeId: null,
+            subscriptionTypeId: 2,
+            filingStatusTypeId: 1
+        };
+        let formattedPayload = JSON.stringify(service.formatPayload(payload));
+
+        let timestamp = Date.now();
+        let url = '/someUrlolz';
+        let nonce = timestamp + url + formattedPayload;
+        var shaObj = new jsSHA('SHA-1', 'TEXT');
+        shaObj.setHMACKey(service.secretKey, 'TEXT');
+        shaObj.update(nonce);
+        let hashedNonce = shaObj.getHMAC('HEX');
+
+        // Act
+        let authNonce = service.getNonce(timestamp, url, formattedPayload);
+
+        // Assert
+        expect(hashedNonce).toEqual(authNonce);
     }));
 
   it('getNonce should return hash of timestamp, url, payload and secret key',

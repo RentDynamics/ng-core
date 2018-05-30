@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Headers } from '@angular/http';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { Credentials } from './credentials';
-import { AuthServiceConfig } from './auth-service-config';
+import {Injectable} from '@angular/core';
+import {Headers} from '@angular/http';
+import {Http} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import {Credentials} from './credentials';
+import {AuthServiceConfig} from './auth-service-config';
 
 declare var jsSHA: jsSHA.jsSHA;
 
@@ -22,8 +22,8 @@ export class AuthService {
     }
 
     constructor(public config: AuthServiceConfig, public http: Http) {
-let test = {};
-this.formatPayload(test);
+        let test = {};
+        this.formatPayload(test);
     }
 
     formatPayload(payload: Object) {
@@ -32,14 +32,17 @@ this.formatPayload(test);
 
         if (typeof payload === undefined || payload === null) {
             formattedPayload = null;
-        } else if (Array.isArray(payload)) {
+        } else if (payload !== Object(payload)) {
+            formattedPayload = payload;
+        }
+        else if (Array.isArray(payload)) {
             formattedPayload = [];
 
             for (let i = 0; i < payload.length; i++) {
                 formattedPayload[i] = self.formatPayload(payload[i]);
             }
         } else {
-            Object.keys(payload).sort().forEach(function(k, v) {
+            Object.keys(payload).sort().forEach(function (k, v) {
                 if (typeof (payload[k]) == 'object') {
                     formattedPayload[k] = self.formatPayload(payload[k]);
                 } else if (typeof (payload[k]) == 'string') {
@@ -112,7 +115,7 @@ this.formatPayload(test);
         return this.http.post(url, user)
             .toPromise()
             .then((res) => {
-              this.loginCallback(res);
+                this.loginCallback(res);
             });
     }
 
@@ -133,12 +136,12 @@ this.formatPayload(test);
     }
 
     loginCallback(res) {
-      let response = res.json ? res.json() : res;
-      this.config.authToken = response.token;
-      this.config.userId = response.userId;
-      window.sessionStorage.setItem('rdUserAuthToken', this.config.authToken);
-      window.sessionStorage.setItem('rdUserId', this.config.userId);
-      return response;
+        let response = res.json ? res.json() : res;
+        this.config.authToken = response.token;
+        this.config.userId = response.userId;
+        window.sessionStorage.setItem('rdUserAuthToken', this.config.authToken);
+        window.sessionStorage.setItem('rdUserId', this.config.userId);
+        return response;
     }
 
     isAuthenticated() {
