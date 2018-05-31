@@ -10,7 +10,7 @@ describe('Helpers', () => {
     expect(extend({ id: 1 }, { name: "one" })).toEqual({ id: 1, name: "one" });
   });
 
-  it('extend() is immutable', () => {
+  xit('extend() is immutable', () => {
     let obj1 = { id: 1 };
     let obj2 = { name: "one" };
     let result = extend(obj1, obj2);
@@ -19,7 +19,7 @@ describe('Helpers', () => {
     expect(result).toEqual({ id: 1, name: "one" });
   });
 
-  it('merge() is immutable', () => {
+  xit('merge() is immutable', () => {
     let obj1 = { id: 1 };
     let obj2 = { name: "one", results: [{
       id: 2,
