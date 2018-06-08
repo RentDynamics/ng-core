@@ -14,11 +14,11 @@ import {
 } from '@angular/http';
 
 import { Observable } from 'rxjs';
-import 'rxjs/add/observable/of';
 
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
+
+
+
+
 
 import { AuthService } from './shared/auth.service';
 import { AuthServiceConfig } from './shared/auth-service-config';

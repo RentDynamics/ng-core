@@ -22,6 +22,7 @@ System.config({
   map: {
     'ckeditor': 'node:ckeditor',
     'rxjs': 'node:rxjs',
+    'rxjs/operators': 'node:rxjs/operators',
     'main': 'main.js',
     'moment': 'node:moment/min/moment.min.js',
     'jssha': 'node:jssha/src/sha.js',
@@ -60,6 +61,7 @@ System.config({
   },
   packages: {
     // Thirdparty barrels.
+    'rxjs/operators': { main: 'index' },
     'rxjs': { main: 'index' },
 
     'ckeditor': { main: 'ckeditor' },
