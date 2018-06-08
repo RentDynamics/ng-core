@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Headers} from '@angular/http';
 import {Http} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Observable, of, from} from 'rxjs';
+import {flatMap, map} from 'rxjs/operators';
 import {Credentials} from './credentials';
 import {AuthServiceConfig} from './auth-service-config';
 
@@ -129,10 +130,10 @@ export class AuthService {
         };
         let url = this.getHost() + endpoint;
         let headers = this.getAuthHeadersWithoutAuth(endpoint, body);
-        return this.http.post(url, body, {headers: headers}).flatMap((result) => {
+        return this.http.post(url, body, {headers: headers}).pipe(flatMap((result) => {
             let response = this.loginCallback(result);
-            return Observable.from([ response ]);
-        });
+            return from([ response ]);
+        }));
     }
 
     loginCallback(res) {
@@ -154,8 +155,9 @@ export class AuthService {
         let url = this.getHost() + endpoint;
         let headers = this.getAuthHeadersWithoutAuth(endpoint, user);
 
-        return this.http.post(url, user, { headers: headers })
-            .map(response => response.json());
+        return this.http.post(url, user, { headers: headers }).pipe(
+            map(response => response.json())
+        );
     }
 
     getHost() {

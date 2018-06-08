@@ -1,4 +1,5 @@
-import { Observable } from 'rxjs/Rx';
+
+import {from as observableFrom, Observable} from 'rxjs';
 
 export const AuthServiceMock = {
     authToken: '',
@@ -10,13 +11,13 @@ export const AuthServiceMock = {
     getAuthHeadersWithoutAuth: () => {},
     logout: () => {},
     login: () => {},
-    ssoLogin: () => {
-      return Observable.from([]);
+    ssoLogin: (): Observable<any[]> => {
+      return observableFrom([]);
     },
     loginCallback: () => {},
     isAuthenticated: () => {},
-    forgotPassword: () => {
-            return Observable.from([]);
+    forgotPassword: (): Observable<any[]> => {
+            return observableFrom([]);
           },
     getHost: () => {},
     errorHandler: () => {}

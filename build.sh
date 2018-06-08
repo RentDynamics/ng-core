@@ -25,7 +25,7 @@ $ROLLUP -c=.rollup.config.js
 $ROLLUP -c=.rollup.config.js --environment UGLIFY
 # Rollup dist/testing/index.js into bundles/core-testing.umd.min.js w/sourcemaps
 $ROLLUP $PWD/dist/testing/index.js -o $PWD/dist/bundles/core-testing.umd.min.js -f umd --name @rd/core/testing -m \
---external rxjs/Rx --globals rxjs/Rx:rxjs.Rx
+--external rxjs --globals rxjs:rxjs
 
 # Copy library package.json + README.md, etc. to ./dist directory
 cp $PWD/package.json $PWD/dist/package.json

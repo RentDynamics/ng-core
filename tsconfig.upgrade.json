@@ -1,0 +1,49 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+      "outDir": "./dist",
+      "baseUrl": ".",
+      "rootDir": "./src",
+      "sourceMap": true,
+      "module": "es2015",
+      "declaration": true,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "target": "es5",
+      "skipLibCheck": false,
+      "types": [
+        "toastr",
+        "jssha"
+      ],
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "lib": [
+        "es5",
+        "es2016",
+        "dom",
+        "es2015"
+      ],
+      "paths": {
+        "/testing": ["./src/testing"]
+      }
+    },
+    "files": [
+      "./src/public_api.ts"
+    ],
+    "include": [
+      "./src/testing/index.ts",
+      "./src/**/*.d.ts"
+    ],
+    "exclude": [
+      "**/node_modules",
+      "**/*.spec.ts"
+    ],
+    "angularCompilerOptions": {
+      "annotateForClosureCompiler": true,
+      "strictMetadataEmit": true,
+      "skipTemplateCodegen": true
+    }
+  }
+  

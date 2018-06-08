@@ -1,7 +1,6 @@
-import 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptionsArgs, URLSearchParams, Response } from '@angular/http';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs/Rx';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 
 import { extend } from '../../helpers';
 import { AuthService } from './auth.service';
