@@ -6,7 +6,7 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture } from '@angular/core/testing';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs';
 
 import {
   async, inject

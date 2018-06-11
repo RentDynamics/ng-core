@@ -1,5 +1,8 @@
 /* tslint:disable:no-unused-variable */
 
+
+import {of as observableOf,  Observable } from 'rxjs';
+import {map, tap} from 'rxjs/operators';
 import {
   async, inject, TestBed
 } from '@angular/core/testing';
@@ -13,12 +16,6 @@ import {
   HttpModule, Http, XHRBackend, Response, ResponseOptions, URLSearchParams
 } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
 
 import { ApiService } from './api.service';
 import { AuthServiceConfig } from './auth-service-config';
@@ -138,7 +135,7 @@ describe('Service: ApiService', () => {
         communityId: 1,
         personId: 2
       }))
-      let spyHttpPost = spyOn(http, 'post').and.callFake(() => Observable.of([]))
+      let spyHttpPost = spyOn(http, 'post').and.callFake(() => observableOf([]))
       // Act
       service.post(endpoint, body, { search: query_params });
       // Assert
@@ -167,9 +164,9 @@ describe('Service: ApiService', () => {
     it('should have expected fake results (then)', async(inject([], () => {
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
 
-      service.get('/units').map((response: Response) => {
+      service.get('/units').pipe(map((response: Response) => {
         return response.json();
-      }).toPromise()
+      })).toPromise()
         // .then(() => Promise.reject('deliberate'))
         .then(results => {
           expect(results.data.length).toBe(fakeResult.length,
@@ -180,12 +177,13 @@ describe('Service: ApiService', () => {
     it('should have expected fake results (Observable.do)', async(inject([], () => {
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
 
-      service.get('/units').map((response: Response) => {
+      service.get('/units').pipe(
+        map((response: Response) => {
           return response.json();
-        }).do(results => {
+        }), tap(results => {
           expect(results.data.length).toBe(fakeResult.length,
             'should have expected number of results');
-        })
+        }))
         .toPromise();
     })));
 
@@ -194,11 +192,12 @@ describe('Service: ApiService', () => {
       let resp = new Response(new ResponseOptions({ status: 200, body: { data: [] } }));
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(resp));
 
-      service.get('/units').map((response: Response) => {
+      service.get('/units').pipe(
+        map((response: Response) => {
           return response.json();
-        }).do(results => {
+        }), tap(results => {
           expect(results.data.length).toBe(0, 'should have no results');
-        })
+        }))
         .toPromise();
     })));
 

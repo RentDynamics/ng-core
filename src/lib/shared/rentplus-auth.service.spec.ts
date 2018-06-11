@@ -13,12 +13,12 @@ import {
   HttpModule, Http, XHRBackend, Response, ResponseOptions
 } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Observable } from 'rxjs';
 
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
+
+
+
+
 
 import { RentplusAuthService } from './rentplus-auth.service';
 import { RentplusAuthServiceConfig } from './rentplus-auth-service-config';

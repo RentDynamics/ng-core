@@ -1,22 +1,23 @@
-import { Observable } from 'rxjs/Rx';
+
+import { from as observableFrom, Observable } from 'rxjs';
 
 export const CoreApiServiceMock = {
-    get: () => {
-            return Observable.from([]);
-          },
-    put: () => {
-            return Observable.from([]);
-          },
-    post: () => {
-            return Observable.from([]);
-          },
-    postBlob: () => {
-            return Observable.from([]);
-          },
-    postWithoutAuth: () => {
-            return Observable.from([]);
-          },
-    delete: () => {
-            return Observable.from([]);
-          }
+  get: (): Observable<any[]> => {
+    return observableFrom([]);
+  },
+  put: (): Observable<any[]> => {
+    return observableFrom([]);
+  },
+  post: (): Observable<any[]> => {
+    return observableFrom([]);
+  },
+  postBlob: (): Observable<any[]> => {
+    return observableFrom([]);
+  },
+  postWithoutAuth: (): Observable<any[]> => {
+    return observableFrom([]);
+  },
+  delete: (): Observable<any[]> => {
+    return observableFrom([]);
+  }
 }

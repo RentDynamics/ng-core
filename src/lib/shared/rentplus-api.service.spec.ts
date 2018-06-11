@@ -1,5 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
+
+import {tap} from 'rxjs/operators';
 import {
   async, inject, TestBed
 } from '@angular/core/testing';
@@ -13,12 +15,12 @@ import {
   HttpModule, Http, XHRBackend, Response, ResponseOptions
 } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Observable } from 'rxjs';
 
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
+
+
+
+
 
 import { AuthService } from './shared/auth.service';
 import { AuthServiceConfig } from './shared/auth-service-config';
@@ -136,10 +138,10 @@ describe('Service: RentplusApiService', () => {
     it('should have expected fake results (Observable.do)', async(inject([], () => {
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
 
-      service.put('/units', {}).do(results => {
+      service.put('/units', {}).pipe(tap(results => {
         expect(results.data.length).toBe(fakeResult.length,
           'should have expected number of results');
-      })
+      }))
         .toPromise();
     })));
 
@@ -147,9 +149,9 @@ describe('Service: RentplusApiService', () => {
       let resp = new Response(new ResponseOptions({ status: 200, body: { data: [] } }));
       backend.connections.subscribe((c: MockConnection) => c.mockRespond(resp));
 
-      service.post('/units', {}).do(results => {
+      service.post('/units', {}).pipe(tap(results => {
         expect(results.data.length).toBe(0, 'should have no results');
-      })
+      }))
         .toPromise();
     })));
 

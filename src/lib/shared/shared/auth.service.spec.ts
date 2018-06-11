@@ -15,12 +15,12 @@ import {
 
 declare var jsSHA: jsSHA.jsSHA;
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { Observable, from as observableFrom } from 'rxjs';
 
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
+
+
+
+
 
 import { AuthService } from './auth.service';
 import { AuthServiceConfig } from './auth-service-config';
@@ -396,7 +396,7 @@ describe('Service: AuthService', () => {
       //Arrange
       let token = 'l8H98pUtoi7glkUGiyfyu6fUYiT';
       let returnedValue = '{"userId": 1234, "token": "klu79yg75UYG5UIG8TgvTR"}';
-      spyOn(http, 'post').and.returnValue( Observable.from([returnedValue]));
+      spyOn(http, 'post').and.returnValue(observableFrom([returnedValue]));
       //Act
       service.ssoLogin(token).subscribe((result) => {
         //Assert

@@ -19,7 +19,7 @@ var config = {
         'moment',
         'moment-range',
         'moment-timezone',
-        'rxjs/Rx',
+        'rxjs',
         'jssha'
     ],
     output: {
@@ -40,6 +40,7 @@ var config = {
             '@rd/forms': 'rd.forms',
 
             'moment': 'moment',
+            'rxjs': 'rxjs' 
         },
         // banner: '/* my-library version ' + libraryVersion + ' */',
         // footer: '/* follow me on Twitter! @rich_harris */'

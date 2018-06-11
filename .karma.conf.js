@@ -19,7 +19,7 @@ module.exports = function (config) {
     proxies: {
       // required for modules fetched by SystemJS
       '/node_modules/': '/base/node_modules/',
-      '/base/node_modules/': './node_modules/'
+      '/base/node_modules/': './node_modules/',
     },
 
     files: [
