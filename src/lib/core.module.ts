@@ -5,6 +5,7 @@ import {
     ApiService, AuthService, AuthServiceConfig,
     CoreApiService, CoreAuthService, CoreAuthServiceConfig,
     RentplusApiService, RentplusAuthService, RentplusAuthServiceConfig,
+    ReportSchedulerApiService, ReportSchedulerAuthService, ReportSchedulerAuthServiceConfig,
     TextMsgItApiService, TextMsgItAuthService, TextMsgItAuthServiceConfig,
     ImmutableService
 } from './shared/index';
@@ -28,6 +29,8 @@ import { OrderByModule } from './order-by/index';
         CoreAuthService,
         RentplusApiService,
         RentplusAuthService,
+        ReportSchedulerApiService,
+        ReportSchedulerAuthService,
         TextMsgItApiService,
         TextMsgItAuthService,
         ImmutableService
@@ -43,7 +46,8 @@ export class RdAngularCoreModule {
                 AuthServiceConfig,
                 CoreAuthServiceConfig,
                 TextMsgItAuthServiceConfig,
-                RentplusAuthServiceConfig
+                RentplusAuthServiceConfig,
+                ReportSchedulerAuthServiceConfig,
             ],
         };
     }
