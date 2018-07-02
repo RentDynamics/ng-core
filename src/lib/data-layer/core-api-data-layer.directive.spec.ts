@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { ElementRef, Inject, ChangeDetectorRef } from '@angular/core';
+import {ElementRef, Inject, ChangeDetectorRef, NO_ERRORS_SCHEMA} from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -14,20 +14,20 @@ import {
 
 import { CoreApiService } from '../shared/core-api.service';
 
-import { RdAngularCoreModule } from '../core.module';
+// import { RdAngularCoreModule } from '../core.module';
 import { CoreApiDataLayerDirective } from './core-api-data-layer.directive';
 
 describe('Directive: CoreApiDataLayer', () => {
   // simple style
   beforeEach(() => {
     TestBed.configureTestingModule({
+        declarations: [CoreApiDataLayerDirective],
       imports: [
-        RdAngularCoreModule,
-        HttpModule,
       ],
       providers: [
         { provide: CoreApiService, useValue: {} }
       ],
+        schemas: [NO_ERRORS_SCHEMA]
     });
   });
 

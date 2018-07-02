@@ -1,1 +1,1 @@
-export * from './core-api-data-layer.directive';
+export {CoreApiDataLayerDirective} from './core-api-data-layer.directive';
