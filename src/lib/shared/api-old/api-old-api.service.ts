@@ -1,10 +1,9 @@
-
+import { Observable} from "rxjs/internal/Observable";
 import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptionsArgs } from '@angular/http';
 
-import { ApiService, extend } from '@rd/core';
-
+import { ApiService, extend } from '../../index';
 import { ApiOldAuthService } from './api-old-auth.service';
 
 @Injectable()

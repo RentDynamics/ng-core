@@ -1,11 +1,10 @@
 import { EventEmitter, Injectable, Inject } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
-import { CookieService } from 'angular2-cookie/core';
 
-import { AuthService, CoreApiService, CoreAuthServiceConfig } from '@rd/core';
+import { AuthService, CoreApiService, CoreAuthServiceConfig } from '../index';
 
-import { CredentialsModel, SessionRequest } from '../auth';
+import { CredentialsModel } from './credentials.model';
 import { ApiOldAuthServiceConfig } from './api-old-auth-service-config';
 
 export interface AuthServiceLogin {
@@ -19,7 +18,7 @@ export class ApiOldAuthService extends AuthService implements AuthServiceLogin {
 
   get userEndpoint(): string { return this.config.userId ? `/users/${this.config.userId}?include=role` : null; };
 
-  constructor(authSvcConfig: ApiOldAuthServiceConfig, http: Http, protected cookieSvc: CookieService) {
+  constructor(authSvcConfig: ApiOldAuthServiceConfig, http: Http) {
     super(authSvcConfig, http);
     this.config = authSvcConfig;
   }
