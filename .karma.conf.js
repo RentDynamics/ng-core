@@ -51,7 +51,8 @@ module.exports = function (config) {
       // Includes all package tests and source files into karma. Those files will be watched.
       // This pattern also matches all all sourcemap files and TypeScript files for debugging.
       // {pattern: 'build/**/*', included: false, watched: true}, /* may be needed for sourcemaps */
-      {pattern: 'dist/lib/**', included: false, watched: true}
+      {pattern: 'dist/testing/**', included: false, watched: true},
+      {pattern: 'dist/lib/**', included: false, watched: true},
     ],
 
     preprocessors: {

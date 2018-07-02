@@ -3,7 +3,8 @@ import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptionsArgs } from '@angular/http';
 
-import { ApiService, extend } from '../../index';
+import { ApiService } from '../shared/api.service';
+import { extend } from '../../helpers';
 import { ApiOldAuthService } from './api-old-auth.service';
 
 @Injectable()
