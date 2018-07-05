@@ -16,8 +16,7 @@ export class OrderByPipe implements PipeTransform {
       // null check
       if (a === null && b === null) return 0;
       if (a === null) return 1;
-      if (b === null) return -1; 
-      
+      if (b === null) return -1;
       //Isn't a number so lowercase the string to properly compare
       if (a.toLowerCase() < b.toLowerCase()) return -1;
       if (a.toLowerCase() > b.toLowerCase()) return 1;
