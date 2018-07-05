@@ -14,9 +14,9 @@ export class OrderByPipe implements PipeTransform {
     }
     else if ((isNaN(parseFloat(a)) || !isFinite(a)) || (isNaN(parseFloat(b)) || !isFinite(b))) {
       // null check
-      if (a === null && b === null) return 0;
-      if (a === null) return 1;
-      if (b === null) return -1;
+      if ((a === null || a === undefined) && (b === null || b === undefined)) return 0;
+      if (a === null || a === undefined) return 1;
+      if (b === null || b === undefined) return -1;
       //Isn't a number so lowercase the string to properly compare
       if (a.toLowerCase() < b.toLowerCase()) return -1;
       if (a.toLowerCase() > b.toLowerCase()) return 1;
