@@ -46,6 +46,24 @@ describe('Pipe: OrderBy', () => {
     expect(result[3].name).toEqual('d');
   });
 
+  it('should sort strings when null', () => {
+    // Arrange
+    let myArr = [
+        { id: 1, name: null },
+        { id: 2, name: 'b' },
+        { id: 3, name: 'a' },
+        { id: 4, name: null }
+    ];
+    let pipe = new OrderByPipe();
+    // Act
+    let result = pipe.transform(myArr, ['name']);
+    // Assert
+    expect(result[0].name).toEqual('a');
+    expect(result[1].name).toEqual('b');
+    expect(result[2].name).toEqual(null);
+    expect(result[3].name).toEqual(null);
+  });
+
   it('should sort numbers', () => {
     // Arrange
     let myArr = [
