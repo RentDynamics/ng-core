@@ -97,7 +97,6 @@ describe('Service: ReportSchedulerApiService', () => {
       expect(config.host).toBe('//api.rentdynamics.com');
     }));
 
-
   it('ReportSchedulerAuthServiceConfig authToken changes should propegate across all services',
     inject([ReportSchedulerApiService, ReportSchedulerAuthService, ReportSchedulerAuthServiceConfig],
         (apiSvc: ReportSchedulerApiService, authSvc: ReportSchedulerAuthService, config: ReportSchedulerAuthServiceConfig) => {

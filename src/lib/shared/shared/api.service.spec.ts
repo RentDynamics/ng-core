@@ -26,6 +26,7 @@ class AuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
   authToken: string = '';
   host: string = '//mock.rentdynamics.com';
+  serviceRoute: string = '/svc/mock-service';
   secretKey: string = '';
   userId: string = '';
 }
@@ -109,7 +110,7 @@ describe('Service: ApiService', () => {
       service.post(endpoint, body, { search: query_params });
       // Assert
       expect(spy.authSvc.getAuthHeaders).toHaveBeenCalled();
-      expect(spy.authSvc.getAuthHeaders).toHaveBeenCalledWith('/endpoint?%7B%22communityId%22:1,%22personId%22:2%7D=', { id: -1 });
+      expect(spy.authSvc.getAuthHeaders).toHaveBeenCalledWith('/svc/mock-service/endpoint?%7B%22communityId%22:1,%22personId%22:2%7D=', { id: -1 });
     }));
 
   it('post without search params should invoke getAuthHeaders without query string',
@@ -122,7 +123,7 @@ describe('Service: ApiService', () => {
       service.post(endpoint, body);
       // Assert
       expect(spy.authSvc.getAuthHeaders).toHaveBeenCalled();
-      expect(spy.authSvc.getAuthHeaders).toHaveBeenCalledWith('/endpoint', { id: -1 });
+      expect(spy.authSvc.getAuthHeaders).toHaveBeenCalledWith('/svc/mock-service/endpoint', { id: -1 });
     }));
 
   xit('post with search params should invoke http post with query string',
@@ -141,7 +142,7 @@ describe('Service: ApiService', () => {
       // Assert
       expect(spyHttpPost).toHaveBeenCalled();
       expect(spyHttpPost).toHaveBeenCalledWith(
-        '//mock.rentdynamics.com/endpoint', 
+        '//mock.rentdynamics.com/svc/mock-service/endpoint',
         { id: -1 }, 
         { headers: '', search: query_params }
       );
@@ -217,4 +218,62 @@ describe('Service: ApiService', () => {
       //   .toPromise();
     })));
   });
+});
+
+
+class AuthServiceWithoutRouteConfigMock implements AuthServiceConfig {
+    apiKey: string = '';
+    authToken: string = '';
+    host: string = '//mock.rentdynamics.com';
+    secretKey: string = '';
+    userId: string = '';
+}
+
+describe('Service: ApiService', () => {
+    let spy = {
+        authSvc: {
+            getAuthHeaders: null,
+            getAuthHeadersWithoutAuth: null
+        }
+    };
+
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [HttpModule],
+            providers: [
+                ApiService,
+                AuthService,
+                { provide: AuthServiceConfig, useClass: AuthServiceWithoutRouteConfigMock },
+                { provide: XHRBackend, useClass: MockBackend },
+                // {
+                //   provide: AuthService, useValue: {
+                //     getAuthHeaders: () => {
+                //       return '';
+                //     },
+                //     getAuthHeadersWithoutAuth: () => {
+                //       return '';
+                //     }
+                //   }
+                // }
+            ]
+        });
+    });
+
+    beforeEach(inject([AuthService], (authSvc: AuthService) => {
+        spy.authSvc.getAuthHeaders = spyOn(authSvc, 'getAuthHeaders').and.callFake(() => '');
+        spy.authSvc.getAuthHeadersWithoutAuth = spyOn(authSvc, 'getAuthHeadersWithoutAuth').and.callFake(() => '');
+    }));
+
+    it('should handle an empty serviceRoute gracefully',
+        inject([Http, AuthService], (http: Http, authSvc: AuthService) => {
+            // Arrange
+            let service = new ApiService(authSvc, http);
+            let endpoint = '/endpoint';
+            let body = { id: -1 };
+            // Act
+            service.post(endpoint, body);
+            // Assert
+            expect(spy.authSvc.getAuthHeaders).toHaveBeenCalled();
+            expect(spy.authSvc.getAuthHeaders).toHaveBeenCalledWith('/endpoint', { id: -1 });
+        }));
 });

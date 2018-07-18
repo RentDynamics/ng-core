@@ -16,21 +16,13 @@ import {
 declare var jsSHA: jsSHA.jsSHA;
 
 import { Observable, from as observableFrom } from 'rxjs';
-
-
-
-
-
-
 import { AuthService } from './auth.service';
 import { AuthServiceConfig } from './auth-service-config';
-import {formattedError} from "@angular/compiler";
 
 class AuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
   authToken: string = '';
   host: string = '//mock.rentdynamics.com';
-  serviceRoute: string = '';
   secretKey: string = '';
   userId: string = '';
 }
@@ -447,4 +439,47 @@ describe('Service: AuthService', () => {
       //Assert
       expect(host).toEqual('//mock.rentdynamics.com');
     }));
+
+    it('getSvcRoute() should be ""',
+        inject([AuthService], (service: AuthService) => {
+            //Arrange
+
+            //Act
+            let route = service.getSvcRoute();
+            //Assert
+            expect(route).toEqual('');
+        }));
 });
+
+class AuthServiceWithRouteConfigMock implements AuthServiceConfig {
+    apiKey: string = '';
+    authToken: string = '';
+    host: string = '//mock.rentdynamics.com';
+    serviceRoute: string = '/svc/report-scheduler';
+    secretKey: string = '';
+    userId: string = '';
+}
+
+describe('Service: AuthService', () => {
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [HttpModule],
+            providers: [
+                AuthService,
+                { provide: AuthServiceConfig, useClass: AuthServiceWithRouteConfigMock },
+                { provide: XHRBackend, useClass: MockBackend },
+            ]
+        });
+    });
+
+it('getSvcRoute() should be "/svc/report-scheduler"',
+    inject([AuthService], (service: AuthService) => {
+        //Arrange
+
+        //Act
+        let route = service.getSvcRoute();
+        //Assert
+        expect(route).toEqual('/svc/report-scheduler');
+    }));
+});
+
