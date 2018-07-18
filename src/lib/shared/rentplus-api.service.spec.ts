@@ -35,6 +35,7 @@ class AuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
   authToken: string = '';
   host: string = '//mock.rentdynamics.com';
+  serviceRoute?: string = '';
   secretKey: string = '';
   userId: string = '';
 }
@@ -43,6 +44,7 @@ class CoreAuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
   authToken: string = '';
   host: string = '//core.rentdynamics.com';
+  serviceRoute?: string = '';
   secretKey: string = '';
   userId: string = '';
 }
@@ -51,6 +53,7 @@ class RentplusAuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
   authToken: string = '';
   host: string = '//api.rentplus.com';
+  serviceRoute?: string = '';
   secretKey: string = '';
   userId: string = '';
 }

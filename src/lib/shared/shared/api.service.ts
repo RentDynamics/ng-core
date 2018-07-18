@@ -12,6 +12,7 @@ export class ApiService {
   constructor(public authService: AuthService, public http: Http) { }
 
   get(endpoint: string, options: RequestOptionsArgs = {}): Observable<any> {
+    endpoint = this.getSvcRoute() + endpoint;
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeaders(endpoint);
 
@@ -21,6 +22,7 @@ export class ApiService {
   }
 
   put(endpoint: string, body: any, options: RequestOptionsArgs = {}): Observable<any> {
+    endpoint = this.getSvcRoute() + endpoint;
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeaders(endpoint, body);
 
@@ -30,6 +32,7 @@ export class ApiService {
   }
 
   post(endpoint: string, body: any, options: RequestOptionsArgs = {}): Observable<any> {
+    endpoint = this.getSvcRoute() + endpoint;
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeaders(endpoint, body);
 
@@ -39,6 +42,7 @@ export class ApiService {
   }
 
   postWithoutAuth(endpoint: string, body: any, options: RequestOptionsArgs = {}): Observable<any> {
+    endpoint = this.getSvcRoute() + endpoint;
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeadersWithoutAuth(endpoint, body);
 
@@ -48,6 +52,7 @@ export class ApiService {
   }
 
   delete(endpoint: string, options: RequestOptionsArgs = {}): Observable<any> {
+    endpoint = this.getSvcRoute() + endpoint;
     let url = this.getHost() + endpoint;
     let headers = this.authService.getAuthHeaders(endpoint);
 
@@ -66,4 +71,7 @@ export class ApiService {
     return this.authService.getHost();
   }
 
+  getSvcRoute() {
+    return this.authService.getSvcRoute();
+  }
 }

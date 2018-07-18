@@ -30,6 +30,7 @@ class AuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
   authToken: string = '';
   host: string = '//mock.rentdynamics.com';
+  serviceRoute: string = '';
   secretKey: string = '';
   userId: string = '';
 }

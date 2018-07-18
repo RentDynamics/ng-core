@@ -32,6 +32,7 @@ class AuthServiceConfigMock implements AuthServiceConfig {
   host: string = '//mock.rentdynamics.com';
   secretKey: string = '';
   userId: string = '';
+  serviceRoute: string = '';
 }
 
 class CoreAuthServiceConfigMock implements AuthServiceConfig {
@@ -40,12 +41,14 @@ class CoreAuthServiceConfigMock implements AuthServiceConfig {
   host: string = '//core.rentdynamics.com';
   secretKey: string = '';
   userId: string = '';
+  serviceRoute: string = '';
 }
 
 class ReportSchedulerAuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
   authToken: string = '';
-  host: string = '//report-scheduler-api.rentdynamics.com';
+  host: string = '//api.rentdynamics.com';
+  serviceRoute: string = '/svc/report-scheduler';
   secretKey: string = '';
   userId: string = '';
 }
@@ -74,9 +77,9 @@ describe('Service: ReportSchedulerApiService', () => {
       expect(service instanceof ReportSchedulerApiService).toBe(true);
     }));
 
-  it('ReportSchedulerApiService getHost() should return "//report-scheduler-api.rentdynamics.com"',
+  it('ReportSchedulerApiService getHost() should return "//api.rentdynamics.com"',
     inject([ReportSchedulerApiService], (service: ReportSchedulerApiService) => {
-      expect(service.getHost()).toBe('//report-scheduler-api.rentdynamics.com');
+      expect(service.getHost()).toBe('//api.rentdynamics.com');
     }));
 
   it('CoreApiService getHost() should return "//core.rentdynamics.com"',
@@ -89,9 +92,9 @@ describe('Service: ReportSchedulerApiService', () => {
       expect(config.host).toBe('//core.rentdynamics.com');
     }));
 
-  it('ReportSchedulerAuthServiceConfig host should be "//report-scheduler-api.rentdynamics.com"',
+  it('ReportSchedulerAuthServiceConfig host should be "//api.rentdynamics.com"',
     inject([ReportSchedulerAuthServiceConfig], (config: ReportSchedulerAuthServiceConfig) => {
-      expect(config.host).toBe('//report-scheduler-api.rentdynamics.com');
+      expect(config.host).toBe('//api.rentdynamics.com');
     }));
 
 

@@ -5,6 +5,7 @@ export const AuthServiceMock = {
     authToken: '',
     secretKey: '',
     userId: '',
+    serviceRoute: '',
     formatPayload: () => {},
     getNonce: () => {},
     getAuthHeaders: () => {},
