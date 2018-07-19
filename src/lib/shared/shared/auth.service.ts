@@ -164,6 +164,10 @@ export class AuthService {
         return this.config.host;
     }
 
+    getSvcRoute() {
+        return this.config.serviceRoute ? this.config.serviceRoute : '';
+    }
+
     errorHandler(error) {
         console.log(error);
     }
