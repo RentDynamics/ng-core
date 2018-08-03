@@ -7,7 +7,10 @@ import {
     RentplusApiService, RentplusAuthService, RentplusAuthServiceConfig,
     ReportSchedulerApiService, ReportSchedulerAuthService, ReportSchedulerAuthServiceConfig,
     TextMsgItApiService, TextMsgItAuthService, TextMsgItAuthServiceConfig,
-    ImmutableService
+    ImmutableService,
+    ReportingApiService,
+    ReportingAuthService,
+    ReportingAuthServiceConfig
 } from './shared/index';
 import { CoreApiDataLayerDirective } from './data-layer/index';
 
@@ -31,6 +34,8 @@ import { OrderByModule } from './order-by/index';
         RentplusAuthService,
         ReportSchedulerApiService,
         ReportSchedulerAuthService,
+        ReportingApiService,
+        ReportingAuthService,
         TextMsgItApiService,
         TextMsgItAuthService,
         ImmutableService
@@ -48,6 +53,7 @@ export class RdAngularCoreModule {
                 TextMsgItAuthServiceConfig,
                 RentplusAuthServiceConfig,
                 ReportSchedulerAuthServiceConfig,
+                ReportingAuthServiceConfig,
             ],
         };
     }
