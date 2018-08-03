@@ -19,3 +19,4 @@ export { Credentials } from './shared/credentials';
 export { CoreApiSelectorFilter } from './core-api-selector-filter';
 export { CoreApiSelectorParams } from './core-api-selector-params';
 export * from './api-old/index';
+export * from './reporting/index';

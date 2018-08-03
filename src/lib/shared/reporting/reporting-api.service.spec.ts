@@ -17,14 +17,14 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { AuthService } from './shared/auth.service';
-import { AuthServiceConfig } from './shared/auth-service-config';
+import { AuthService } from '../shared/auth.service';
+import { AuthServiceConfig } from '../shared/auth-service-config';
 import { ReportingApiService } from './reporting-api.service';
 import { ReportingAuthService } from './reporting-auth.service';
 import { ReportingAuthServiceConfig } from './reporting-auth-service-config';
-import { CoreApiService } from './core-api.service';
-import { CoreAuthService } from './core-auth.service';
-import { CoreAuthServiceConfig } from './core-auth-service-config';
+import { CoreApiService } from '../core-api.service';
+import { CoreAuthService } from '../core-auth.service';
+import { CoreAuthServiceConfig } from '../core-auth-service-config';
 
 class AuthServiceConfigMock implements AuthServiceConfig {
   apiKey: string = '';
