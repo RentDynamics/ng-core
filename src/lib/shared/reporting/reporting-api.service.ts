@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptionsArgs, URLSearchParams, Response } from '@angular/http';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 
-import { ApiService } from './shared/api.service';
+import { ApiService } from '../shared/api.service';
 import { ReportingAuthService } from './reporting-auth.service';
 
 

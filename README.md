@@ -11,8 +11,9 @@
 
 ## @rd/core
 
-In order to release this package properly, you must run git add ., followed by npm run commit, in order to format the commit message properly so that when it is merged into master, it will semantically release the new changes based on commit msg type and previous version.
+In order to release this package properly, you must run git add ., followed by npm run commit, in order to format the commit message properly so that when it is merged into master, it will semantically release the new changes based on commit msg type and previous version
 
+Don't forget to expose any new additions publically, by specifically exporting all new additions via the nearest index.ts file
 
 
 [npm-icon]: https://nodei.co/npm/@rd/core.svg?downloads=true

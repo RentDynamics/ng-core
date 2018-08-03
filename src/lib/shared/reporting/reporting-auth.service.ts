@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers } from '@angular/http';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
-import { AuthService } from './shared/auth.service';
+import { AuthService } from '../shared/auth.service';
 import { ReportingAuthServiceConfig } from './reporting-auth-service-config';
 
 declare var jsSHA: jsSHA.jsSHA;
