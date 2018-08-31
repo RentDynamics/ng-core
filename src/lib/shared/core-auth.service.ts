@@ -4,8 +4,9 @@ import { Http } from '@angular/http';
 
 import { AuthService } from './shared/auth.service';
 import { CoreAuthServiceConfig } from './core-auth-service-config';
+import * as _jsSHA from 'jssha';
 
-declare var jsSHA: jsSHA.jsSHA;
+declare var jsSHA: _jsSHA.jsSHA;
 
 @Injectable()
 export class CoreAuthService extends AuthService {

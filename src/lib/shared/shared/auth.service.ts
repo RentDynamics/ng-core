@@ -5,8 +5,9 @@ import {Observable, of, from} from 'rxjs';
 import {flatMap, map} from 'rxjs/operators';
 import {Credentials} from './credentials';
 import {AuthServiceConfig} from './auth-service-config';
+import * as _jsSHA from 'jssha';
 
-declare var jsSHA: jsSHA.jsSHA;
+declare var jsSHA: _jsSHA.jsSHA;
 
 @Injectable()
 export class AuthService {
