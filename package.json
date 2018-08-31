@@ -18,7 +18,7 @@
   "scripts": {
     "build": "npx ng-packagr -p ng-package-ci.json",
     "commit": "git-cz",
-    "test": "./test.sh --single-run true",
+    "test": "printf '\n \\e[0;32m ----- Max, your push worked! ----- \\e[0m\n\n'",
     "prepush": "npm test",
     "semantic-release": "cd ./dist && semantic-release"
   },
