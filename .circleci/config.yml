@@ -40,8 +40,8 @@ jobs:
       - store_test_results:
           path: dist/reports/junit
 
-      # upload coverage file to codecov
-      - run: ./node_modules/.bin/codecov
+      # # upload coverage file to codecov
+      # - run: ./node_modules/.bin/codecov
 
       - deploy:
           name: yarn build
