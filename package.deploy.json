@@ -1,0 +1,79 @@
+{
+  "name": "@rd/core",
+  "version": "0.0.0-development",
+  "main": "bundles/core.umd.js",
+  "repository": {
+    "url": "https://github.com/RentDynamics/ng-core"
+  },
+  "typings": "public_api.d.ts",
+  "private": false,
+  "author": {
+    "name": "rd"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.9.4",
+    "npm": ">=5.6.0"
+  },
+  "scripts": {
+    "build": "npx ng-packagr -p ng-package-ci.json",
+    "commit": "git-cz",
+    "test": "printf '\n \\e[0;32m ----- Max, your push worked! ----- \\e[0m\n\n'",
+    "prepush": "npm test",
+    "semantic-release": "cd ./dist && semantic-release"
+  },
+  "readme": "README.md",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "moment": "^2.22.2",
+    "jssha": "^2.3.1",
+    "@types/jssha": "^0.0.29"
+  },
+  "devDependencies": {
+    "@angular/animations": "^6.1.0",
+    "@angular/common": "^6.1.0",
+    "@angular/compiler": "^6.1.0",
+    "@angular/core": "^6.1.0",
+    "@angular/forms": "^6.1.0",
+    "@angular/http": "^6.1.0",
+    "@angular/platform-browser": "^6.1.0",
+    "@angular/platform-browser-dynamic": "^6.1.0",
+    "@angular/router": "^6.1.0",
+    "core-js": "^2.5.4",
+    "moment": "^2.22.2",
+    "rxjs": "^6.0.0",
+    "zone.js": "~0.8.26",
+    "@angular-devkit/build-angular": "~0.7.0",
+    "@angular-devkit/build-ng-packagr": "~0.7.0",
+    "@angular/cli": "~6.1.5",
+    "@angular/compiler-cli": "^6.1.0",
+    "@angular/language-service": "^6.1.0",
+    "@types/jasmine": "~2.8.6",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/jssha": "0.0.29",
+    "@types/node": "~8.9.4",
+    "codelyzer": "~4.2.1",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "jssha": "^2.3.1",
+    "karma": "~1.7.1",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.0",
+    "karma-jasmine": "~1.1.1",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^3.0.0",
+    "protractor": "~5.4.0",
+    "ts-node": "~5.0.1",
+    "tsickle": ">=0.29.0",
+    "tslib": "^1.9.0",
+    "tslint": "~5.9.1",
+    "typescript": "~2.7.2"
+  }
+}
