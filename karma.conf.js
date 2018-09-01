@@ -13,13 +13,13 @@ module.exports = function (config) {
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     files: [
-      require('path').join(__dirname, '../../node_modules/jssha/src/sha.js')
+      require('path').join(__dirname, './node_modules/jssha/src/sha.js')
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../../coverage'),
+      dir: require('path').join(__dirname, './coverage'),
       reports: ['html', 'lcovonly'],
       fixWebpackSourcePaths: true
     },
