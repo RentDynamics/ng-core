@@ -22,6 +22,7 @@ export { ApiOldApiService } from './api-old/api-old-api.service';
 export { ApiOldAuthService, AuthServiceLogin } from './api-old/api-old-auth.service';
 export { ApiOldAuthServiceConfig } from './api-old/api-old-auth-service-config';
 export { ApiOldModule } from './api-old/api-old.module';
+export { CredentialsModel } from './api-old/credentials.model';
 export { ReportingApiService } from './reporting/reporting-api.service';
 export { ReportingAuthService } from './reporting/reporting-auth.service';
 export { ReportingAuthServiceConfig } from './reporting/reporting-auth-service-config';
