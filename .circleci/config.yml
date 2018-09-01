@@ -37,11 +37,11 @@ jobs:
       # run tests!
       - run: yarn test
       - store_artifacts:
-          path: dist/reports/coverage
+          path: coverage
       - store_artifacts:
-          path: dist/reports/junit
+          path: junit
       - store_test_results:
-          path: dist/reports/junit
+          path: junit
 
       # # upload coverage file to codecov
       # - run: ./node_modules/.bin/codecov
