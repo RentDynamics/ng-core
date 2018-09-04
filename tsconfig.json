@@ -18,11 +18,11 @@
       "dom"
     ],
     "paths": {
-      "core": [
-        "dist/core"
+      "@rd/core/testing": [
+        "dist/core/testing"
       ],
-      "core/*": [
-        "dist/core/*"
+      "@rd/core/testing/*": [
+        "dist/core/testing/*"
       ]
     }
   }
