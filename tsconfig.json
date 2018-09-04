@@ -19,7 +19,7 @@
     ],
     "paths": {
       "@rd/core/testing": [
-        "dist/core/testing"
+        "dist/core/testing/index.ts"
       ],
       "@rd/core/testing/*": [
         "dist/core/testing/*"

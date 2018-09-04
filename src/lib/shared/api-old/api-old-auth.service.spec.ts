@@ -5,7 +5,7 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { CoreApiService } from '../core-api.service';
 import { CoreAuthServiceConfig } from '../core-auth-service-config';
 import { Http } from '@angular/http';
-import { CoreApiServiceMock } from '@rd/core/testing/core-api-service.mock';
+import { CoreApiServiceMock } from '../../../../testing/core-api-service.mock';
 
 import { ApiOldAuthService } from './api-old-auth.service';
 import { ApiOldAuthServiceConfig } from './api-old-auth-service-config';
