@@ -1,1 +1,1 @@
-declare var hello_world: any;
+declare var jsSHA;

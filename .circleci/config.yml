@@ -19,12 +19,13 @@ jobs:
     steps:
       - checkout
 
+      # - run: cp package.json package.postdeploy.json
+      # - run: cp package.deploy.json package.json
+
       # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
 
       - run: yarn install
 
@@ -36,14 +37,14 @@ jobs:
       # run tests!
       - run: yarn test
       - store_artifacts:
-          path: dist/reports/coverage
+          path: coverage
       - store_artifacts:
-          path: dist/reports/junit
+          path: junit
       - store_test_results:
-          path: dist/reports/junit
+          path: junit
 
-      # upload coverage file to codecov
-      - run: ./node_modules/.bin/codecov
+      # # upload coverage file to codecov
+      # - run: ./node_modules/.bin/codecov
 
       - deploy:
           name: yarn build

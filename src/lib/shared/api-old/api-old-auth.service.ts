@@ -2,7 +2,7 @@ import { EventEmitter, Injectable, Inject } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
-import { AuthService, CoreApiService, CoreAuthServiceConfig } from '../index';
+import { AuthService } from '../shared/auth.service';
 
 import { CredentialsModel } from './credentials.model';
 import { ApiOldAuthServiceConfig } from './api-old-auth-service-config';

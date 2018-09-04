@@ -17,5 +17,5 @@ export class ApiOldAuthServiceConfig implements AuthServiceConfig {
 
   constructor() {}
 
-  getUri?(path: string){}
+  getUri(path: string){}
 }
