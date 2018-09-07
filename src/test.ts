@@ -23,7 +23,7 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
-import 'script-loader!../node_modules/moment/moment.js';
+import 'script-loader!moment/moment.js';
 
 declare const require: any;
 
