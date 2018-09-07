@@ -25,7 +25,7 @@
   "readme": "README.md",
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "path": "cz-conventional-changelog"
     }
   },
   "publishConfig": {
@@ -74,6 +74,7 @@
     "ng-packagr": "^3.0.0",
     "protractor": "~5.4.0",
     "rxjs": "^6.0.0",
+    "script-loader": "^0.7.2",
     "semantic-release": "^15.9.12",
     "ts-node": "~5.0.1",
     "tsickle": ">=0.29.0",

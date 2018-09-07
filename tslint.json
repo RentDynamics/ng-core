@@ -17,13 +17,13 @@
         "directive-selector": [
             true,
             "attribute",
-            "lib",
+            "rd",
             "camelCase"
         ],
         "component-selector": [
             true,
             "element",
-            "lib",
+            "rd",
             "kebab-case"
         ],
         "eofline": true,

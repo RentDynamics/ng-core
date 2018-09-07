@@ -23,6 +23,8 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
+import 'script-loader!moment/moment.js';
+
 declare const require: any;
 
 // First, initialize the Angular testing environment.
