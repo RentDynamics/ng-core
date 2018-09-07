@@ -2,7 +2,7 @@ import { EventEmitter, Injectable, Inject } from '@angular/core';
 import { BaseRequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 
-import { AuthServiceConfig, CoreAuthServiceConfig } from '../index';
+import { AuthServiceConfig } from '../shared/auth-service-config';
 
 @Injectable()
 export class ApiOldAuthServiceConfig implements AuthServiceConfig {

@@ -19,9 +19,6 @@ jobs:
     steps:
       - checkout
 
-      # - run: cp package.json package.postdeploy.json
-      # - run: cp package.deploy.json package.json
-
       # Download and cache dependencies
       - restore_cache:
           keys:
