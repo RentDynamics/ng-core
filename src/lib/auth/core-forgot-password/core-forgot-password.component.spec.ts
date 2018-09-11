@@ -3,9 +3,7 @@
 import {from as observableFrom} from 'rxjs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, async, inject } from '@angular/core/testing';
-import { Http } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs/Rx';
 import {of as observableOf} from 'rxjs';
 
 import { CoreAuthService } from '../../shared/core-auth.service';
