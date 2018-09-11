@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 
-import { CoreAuthService } from '../shared';
+import { CoreAuthService } from '../../shared/core-auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class CoreAuthGuard implements CanActivate {
 
   constructor(private coreAuthSvc: CoreAuthService, private router: Router) {}
 
