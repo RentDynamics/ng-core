@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import * as _jsSHA from 'jssha';
+
 import { CoreApiService } from '../../shared/core-api.service';
 
 @Component({
@@ -48,7 +50,7 @@ export class CoreSubmitNewPasswordComponent implements OnInit {
   }
 
   hashPassword(password: string) {
-    var shaObj = new jsSHA('SHA-1', 'TEXT');
+    var shaObj = new _jsSHA('SHA-1', 'TEXT');
     shaObj.update(password);
     return shaObj.getHash('HEX');
   }

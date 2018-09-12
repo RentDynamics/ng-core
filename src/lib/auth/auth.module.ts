@@ -11,7 +11,8 @@ import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [ 
-    CommonModule, 
+    CommonModule,
+    FormsModule
   ],
   providers: [
     CoreAuthGuard
