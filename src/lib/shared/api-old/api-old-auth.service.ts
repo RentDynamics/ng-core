@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { AuthService } from '../shared/auth.service';
 
-import { CredentialsModel } from './credentials.model';
+import { CredentialsModel } from '../../auth/credentials.model';
 import { ApiOldAuthServiceConfig } from './api-old-auth-service-config';
 
 export interface AuthServiceLogin {
