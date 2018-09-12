@@ -42,7 +42,7 @@ describe('Component: CoreForgotPasswordComponent', () => {
 
   it('should make a request to AuthService.forgotPassword on forgotPassword', inject([CoreAuthService], (authSvc: CoreAuthService) => {
     // Arrange
-    spyOn(component, 'sendEmail').and.returnValue(null);
+    spyOn(component, 'sendEmail').and.returnValue(observableOf([]));
     spyOn(authSvc, 'forgotPassword').and.callThrough();
     component.username = 'testing@testing.com';
     // Act
@@ -56,7 +56,7 @@ describe('Component: CoreForgotPasswordComponent', () => {
     // Arrange
     let token = 'abcdefghijklmnopqrstuvwxyz1234567890';
     spyOn(authSvc, 'forgotPassword').and.returnValue( observableFrom([{reset_password_token: token}]) );
-    spyOn(component, 'sendEmail').and.returnValue(null);
+    spyOn(component, 'sendEmail').and.returnValue(observableOf([]));
     component.username = 'testing@testing.com';
     // Act
     component.forgotPassword();
@@ -67,7 +67,7 @@ describe('Component: CoreForgotPasswordComponent', () => {
 
   it(`should return an error if username isn't an email && email in the system isn't an email`, inject([CoreAuthService], (authSvc: CoreAuthService) => {
     // Arrange
-    spyOn(component, 'sendEmail').and.returnValue(null);
+    spyOn(component, 'sendEmail').and.returnValue(observableOf([]));
     spyOn(authSvc, 'forgotPassword').and.returnValue( observableFrom([ {user_email: 'not-a-real-email-address'} ]) );
     component.username = 'myUsername';
     // Act
@@ -79,7 +79,7 @@ describe('Component: CoreForgotPasswordComponent', () => {
 
   it('should return true if email is valid on isValidEmail', () => {
     // Arrange
-    spyOn(component, 'sendEmail').and.returnValue(null);
+    spyOn(component, 'sendEmail').and.returnValue(observableOf([]));
     let email = 'test@me.com';
     // Act
     let response = component.isEmailAddress(email);
@@ -89,7 +89,7 @@ describe('Component: CoreForgotPasswordComponent', () => {
 
   it('should return false if email is NOT valid on isValidEmail', () => {
     // Arrange
-    spyOn(component, 'sendEmail').and.returnValue(null);
+    spyOn(component, 'sendEmail').and.returnValue(observableOf([]));
     let email = 'myUsername';
     // Act
     let response = component.isEmailAddress(email);

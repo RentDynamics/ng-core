@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CoreAuthService } from '../../shared/core-auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'rd-core-forgot-password',
@@ -13,7 +14,9 @@ export class CoreForgotPasswordComponent implements OnInit {
   username: string = '';
   errorMessage: string = null;
 
-  constructor(private authSvc: CoreAuthService, private router: Router) { }
+  navigateToUrl: string = '/auth/login';
+
+  constructor(public authSvc: CoreAuthService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +30,9 @@ export class CoreForgotPasswordComponent implements OnInit {
           let email = usernameIsEmail ? this.username : result.user_email;
           if (this.isEmailAddress(email)) {
             let token = result.reset_password_token;
-            this.sendEmail(email, token);
+            this.sendEmail(email, token).subscribe((res) => {
+              this.router.navigateByUrl(this.navigateToUrl);
+            });
           } else {
             this.errorMessage = 'You do not have a valid email address in our system.';
           }
@@ -42,16 +47,12 @@ export class CoreForgotPasswordComponent implements OnInit {
       );
   }
 
-  sendEmail(email: string, token: string) {
+  sendEmail(email: string, token: string): Observable<any> {
     throw Error('CoreForgotPasswordComponent.sendEmail not implemented');
   }
 
   isEmailAddress(email: string): boolean {
     return email.indexOf('@') >= 0;
-  }
-
-  cancel(): void {
-    this.router.navigateByUrl('/auth/login');
   }
 
 }

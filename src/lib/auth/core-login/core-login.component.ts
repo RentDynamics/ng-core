@@ -16,7 +16,7 @@ export class CoreLoginComponent implements OnInit {
   returnUrl: string;
   navigateTo: string = '/';
 
-  constructor(private authSvc: CoreAuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(public authSvc: CoreAuthService, public router: Router, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];

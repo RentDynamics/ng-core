@@ -16,7 +16,9 @@ export class CoreSubmitNewPasswordComponent implements OnInit {
   errorMessage: string = null;
   token: string;
 
-  constructor(private coreApiSvc: CoreApiService, private router: Router, private route: ActivatedRoute) { }
+  navigateToUrl: string = '/auth/login';
+
+  constructor(public coreApiSvc: CoreApiService, public router: Router, public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.token = this.getToken();
@@ -48,8 +50,7 @@ export class CoreSubmitNewPasswordComponent implements OnInit {
   hashPassword(password: string) {
     var shaObj = new jsSHA('SHA-1', 'TEXT');
     shaObj.update(password);
-    shaObj = shaObj.getHash('HEX');
-    return shaObj;
+    return shaObj.getHash('HEX');
   }
 
   changePassword() {
@@ -62,7 +63,7 @@ export class CoreSubmitNewPasswordComponent implements OnInit {
     this.coreApiSvc.postWithoutAuth(endpoint, data)
       .subscribe(
         (result) => {
-          this.router.navigateByUrl('/auth/password-update-success');
+          this.router.navigateByUrl(this.navigateToUrl);
         },
         (error) => {
           this.errorMessage = error.json().error_message;
