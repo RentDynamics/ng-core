@@ -1,6 +1,8 @@
 import { InjectionToken, Injectable, Inject } from "@angular/core";
 
 import * as LocalForage from 'localforage';
+import { defer, Observable } from "rxjs";
+import { switchMap, take } from "rxjs/operators";
 
 /** @hidden */
 export abstract class StorageConfig {
@@ -14,7 +16,7 @@ export abstract class StorageConfig {
 }
 
 export class Storage {
-  private _dbPromise: Promise<LocalForage>;
+  private _db$: Observable<LocalForage>;
   private _driver: string = null;
 
   /**
@@ -25,7 +27,7 @@ export class Storage {
    * default is that exact ordering.
    */
   constructor(config: StorageConfig) {
-    this._dbPromise = new Promise((resolve, reject) => {
+    this._db$ = defer(() => new Promise((resolve, reject) => {
       let db: LocalForage;
 
       const defaultConfig = getDefaultConfig();
@@ -44,7 +46,7 @@ export class Storage {
           resolve(db);
         })
         .catch(reason => reject(reason));
-    });
+    }));
   }
 
   /**
@@ -57,10 +59,10 @@ export class Storage {
 
   /**
    * Reflect the readiness of the store.
-   * @returns Returns a promise that resolves when the store is ready
+   * @returns Returns an observable that resolves when the store is ready
    */
-  ready(): Promise<LocalForage> {
-    return this._dbPromise;
+  ready(): Observable<LocalForage> {
+    return this._db$.pipe(take(1));
   }
 
   /** @hidden */
@@ -82,62 +84,62 @@ export class Storage {
   /**
    * Get the value associated with the given key.
    * @param key the key to identify this value
-   * @returns Returns a promise with the value of the given key
+   * @returns Returns an observable with the value of the given key
    */
-  get(key: string): Promise<any> {
-    return this._dbPromise.then(db => db.getItem(key));
+  get(key: string): Observable<any> {
+    return this._db$.pipe(switchMap(db => db.getItem(key)), take(1));
   }
 
   /**
    * Set the value for the given key.
    * @param key the key to identify this value
    * @param value the value for this key
-   * @returns Returns a promise that resolves when the key and value are set
+   * @returns Returns an observable that resolves when the key and value are set
    */
-  set(key: string, value: any): Promise<any> {
-    return this._dbPromise.then(db => db.setItem(key, value));
+  set(key: string, value: any): Observable<any> {
+    return this._db$.pipe(switchMap(db => db.setItem(key, value)), take(1));
   }
 
   /**
    * Remove any value associated with this key.
    * @param key the key to identify this value
-   * @returns Returns a promise that resolves when the value is removed
+   * @returns Returns an observable that resolves when the value is removed
    */
-  remove(key: string): Promise<any> {
-    return this._dbPromise.then(db => db.removeItem(key));
+  remove(key: string): Observable<any> {
+    return this._db$.pipe(switchMap(db => db.removeItem(key)), take(1));
   }
 
   /**
    * Clear the entire key value store. WARNING: HOT!
-   * @returns Returns a promise that resolves when the store is cleared
+   * @returns Returns an observable that resolves when the store is cleared
    */
-  clear(): Promise<void> {
-    return this._dbPromise.then(db => db.clear());
+  clear(): Observable<void> {
+    return this._db$.pipe(switchMap(db => db.clear()), take(1));
   }
 
   /**
-   * @returns Returns a promise that resolves with the number of keys stored.
+   * @returns Returns an observable that resolves with the number of keys stored.
    */
-  length(): Promise<number> {
-    return this._dbPromise.then(db => db.length());
+  length(): Observable<number> {
+    return this._db$.pipe(switchMap(db => db.length()), take(1));
   }
 
   /**
-   * @returns Returns a promise that resolves with the keys in the store.
+   * @returns Returns an observable that resolves with the keys in the store.
    */
-  keys(): Promise<string[]> {
-    return this._dbPromise.then(db => db.keys());
+  keys(): Observable<string[]> {
+    return this._db$.pipe(switchMap(db => db.keys()), take(1));
   }
 
   /**
    * Iterate through each key,value pair.
    * @param iteratorCallback a callback of the form (value, key, iterationNumber)
-   * @returns Returns a promise that resolves when the iteration has finished.
+   * @returns Returns an observable that resolves when the iteration has finished.
    */
   forEach(
     iteratorCallback: (value: any, key: string, iterationNumber: Number) => any
-  ): Promise<void> {
-    return this._dbPromise.then(db => db.iterate(iteratorCallback));
+  ): Observable<void> {
+    return this._db$.pipe(switchMap(db => db.iterate(iteratorCallback)), take(1));
   }
 }
 
