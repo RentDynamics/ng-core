@@ -1,8 +1,8 @@
-import { InjectionToken, Injectable, Inject } from "@angular/core";
+import { InjectionToken, Injectable, Inject } from '@angular/core';
 
 import * as LocalForage from 'localforage';
-import { defer, Observable } from "rxjs";
-import { switchMap, take } from "rxjs/operators";
+import { defer, Observable } from 'rxjs';
+import {switchMap, take, tap} from 'rxjs/operators';
 
 /** @hidden */
 export abstract class StorageConfig {
@@ -140,6 +140,11 @@ export class Storage {
     iteratorCallback: (value: any, key: string, iterationNumber: Number) => any
   ): Observable<void> {
     return this._db$.pipe(switchMap(db => db.iterate(iteratorCallback)), take(1));
+  }
+
+
+  drop(): Observable<any> {
+    return this._db$.pipe(take(1), tap(db => defer(() => db.dropInstance())));
   }
 }
 

@@ -11,7 +11,7 @@ import { provideStorage, StorageConfigToken, Storage, StorageConfig } from './st
 import { StorageModule } from '.';
 
 describe('Storage', () => {
-    var storage;
+    var storage: Storage;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -80,9 +80,14 @@ describe('Storage', () => {
     it('storage.set() should set the value in the indexeddb db', (done) => {
         const store = {id: 1}
         storage.set('test1', store).subscribe((result) => {
-            // expect(false).toBeTruthy();
             expect(result).toBeTruthy();
             done();
         });
+    });
+
+    afterAll((done) => {
+      storage.drop().subscribe((drop_result) => {
+        done();
+      });
     });
 });
