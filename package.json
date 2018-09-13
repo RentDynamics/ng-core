@@ -70,6 +70,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-junit-reporter": "^1.2.0",
     "karma-phantomjs-launcher": "^1.0.4",
+    "localforage": "^1.7.2",
     "moment": "^2.22.2",
     "ng-packagr": "^3.0.0",
     "protractor": "~5.4.0",
