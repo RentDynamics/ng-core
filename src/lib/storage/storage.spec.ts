@@ -88,7 +88,10 @@ describe('Storage', () => {
       combineLatest(
         storage.set('pricing_1', {price: 500}),
         storage.set('info_1', {communityPhone: '4352016055'}),
-        storage.set('map_1', {coordinates: [41.7192251, -111.8359035]})
+        storage.set('map_1', {coordinates: [41.7192251, -111.8359035]}),
+        storage.set('pricing_2', {price: 2500}),
+        storage.set('info_2', {communityPhone: '4352216255'}),
+        storage.set('map_2', {coordinates: [42.7192251, -112.8359035]}),
       ).pipe(
         switchMap((bulk_set_result) => {
           return storage.set('community_info_keys_1', ['pricing_1', 'info_1', 'map_1']);
