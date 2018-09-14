@@ -55,6 +55,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/jssha": "0.0.29",
     "@types/node": "~8.9.4",
+    "@types/pouchdb": "^6.3.2",
     "codecov": "^3.0.4",
     "codelyzer": "~4.2.1",
     "commitizen": "^2.10.1",
@@ -85,6 +86,12 @@
     "zone.js": "~0.8.26"
   },
   "dependencies": {
+    "@ngx-pwa/local-storage": "^6.1.0",
+    "dexie": "^2.0.4",
+    "jsstore": "^2.4.1",
+    "minimongo": "^5.0.1",
+    "pouchdb": "^7.0.0",
+    "whatwg-fetch": "^3.0.0",
     "zangodb": "^1.0.7"
   }
 }
