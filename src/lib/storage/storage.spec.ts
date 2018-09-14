@@ -11,8 +11,14 @@ import {provideStorage, StorageConfigToken, Storage, StorageConfig} from './stor
 import {StorageModule} from './storage.module';
 import {flatMap, map, mergeMap, switchMap, tap, toArray} from 'rxjs/operators';
 
+import * as zangodb from 'zangodb';
+
+// global.indexedDB = require('fake-indexeddb');
+// global.IDBKeyRange = require('fake-indexeddb/lib/FDBKeyRange');
+
 describe('Storage', () => {
-  var storage: Storage;
+  let zango: zangodb.Db = null;
+  let storage: Storage = null;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -36,6 +42,7 @@ describe('Storage', () => {
 
   beforeEach(inject([Storage], (stor: Storage) => {
     storage = stor;
+    zango = new zangodb.Db('mydb', 1, { people: ['age'] });
   }));
 
   it('should ...', () => {
@@ -47,6 +54,39 @@ describe('Storage', () => {
       expect(result).toBeTruthy();
       done();
     });
+  });
+
+  it('zangodb!!', (done) => {
+    const people = zango.collection('people');
+
+    const docs = [
+      { name: 'Frank', age: 20 },
+      { name: 'Thomas', age: 33 },
+      { name: 'Todd', age: 33 },
+      { name: 'John', age: 28 },
+      { name: 'Peter', age: 33 },
+      { name: 'George', age: 28 }
+    ];
+
+    people.insert(docs).then(() => {
+      return people.find({
+        name: { $ne: 'John' },
+        age: { $gt: 20 }
+      }).group({
+        _id: { age: '$age' },
+        count: { $sum: 1 }
+      }).project({
+        _id: 0,
+        age: '$_id.age'
+      }).sort({
+        age: -1
+      }).toArray().then((results) => {
+        console.log('results:', results);
+        expect(results.length).toBe(2);
+        expect(results).toEqual([{count: 3, age: 33}, {count: 1, age: 28}]);
+        done();
+      });
+    }).catch(error => console.error(error));
   });
 
   it('should set and get value correctly', (done) => {
@@ -125,8 +165,8 @@ describe('Storage', () => {
     });
   });
 
-  afterAll((done) => {
-    storage.drop().subscribe((drop_result) => {
+  afterEach((done) => {
+    Promise.all([zango.drop(), storage.drop().toPromise()]).then(() => {
       done();
     });
   });
