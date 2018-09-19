@@ -24,7 +24,7 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn install
+      - run: npm install
 
       - save_cache:
           paths:
@@ -32,7 +32,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn test
+      - run: npm test
       - store_artifacts:
           path: coverage
       - store_artifacts:
@@ -44,14 +44,14 @@ jobs:
       # - run: ./node_modules/.bin/codecov
 
       - deploy:
-          name: yarn build
+          name: npm run build
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn build
+              npm run build
             fi
       - deploy:
-          name: yarn semantic-release
+          name: npm run semantic-release
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn semantic-release
+              npm run semantic-release
             fi
