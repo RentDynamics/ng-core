@@ -100,8 +100,8 @@ export class AuthService {
     logout() {
         this.config.authToken = null;
         this.config.userId = null;
-        window.sessionStorage.removeItem('rdUserAuthToken');
-        window.sessionStorage.removeItem('rdUserId');
+        window.localStorage.removeItem('rdUserAuthToken');
+        window.localStorage.removeItem('rdUserId');
     }
 
     login(user: Credentials) {
@@ -141,8 +141,8 @@ export class AuthService {
         let response = res.json ? res.json() : res;
         this.config.authToken = response.token;
         this.config.userId = response.userId;
-        window.sessionStorage.setItem('rdUserAuthToken', this.config.authToken);
-        window.sessionStorage.setItem('rdUserId', this.config.userId);
+        window.localStorage.setItem('rdUserAuthToken', this.config.authToken);
+        window.localStorage.setItem('rdUserId', this.config.userId);
         return response;
     }
 
