@@ -6,7 +6,8 @@ import { CoreAuthGuard } from './guard/auth.guard';
 import { CoreForgotPasswordComponent } from './core-forgot-password/core-forgot-password.component';
 import { CoreLoginComponent } from './core-login/core-login.component';
 import { CoreSubmitNewPasswordComponent } from './core-submit-new-password/core-submit-new-password.component';
-import { LogoutComponent } from './logout/logout.component';
+import { CoreLogoutComponent } from './core-logout/core-logout.component';
+import { CoreLogoutResolve } from './core-logout/core-logout.resolve';
 
 
 @NgModule({
@@ -15,19 +16,20 @@ import { LogoutComponent } from './logout/logout.component';
     FormsModule
   ],
   providers: [
-    CoreAuthGuard
+    CoreAuthGuard,
+    CoreLogoutResolve
   ],
   declarations: [
     CoreLoginComponent,
     CoreForgotPasswordComponent,
     CoreSubmitNewPasswordComponent,
-    LogoutComponent
+    CoreLogoutComponent
   ],
   exports: [
     CoreLoginComponent,
     CoreForgotPasswordComponent,
     CoreSubmitNewPasswordComponent,
-    LogoutComponent
+    CoreLogoutComponent
   ]
 })
 export class RdAngularAuthModule {}
