@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoreLogoutComponent } from './core-logout.component';
+import { Router } from '@angular/router';
 
 describe('CoreCoreLogoutComponent', () => {
   let component: CoreLogoutComponent;
@@ -8,7 +9,10 @@ describe('CoreCoreLogoutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CoreLogoutComponent ]
+      declarations: [ CoreLogoutComponent ],
+      providers: [{ provide: Router, useValue: {
+        navigateByUrl: () => { }
+      } }]
     })
     .compileComponents();
   }));
