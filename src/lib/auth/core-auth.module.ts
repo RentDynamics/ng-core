@@ -31,7 +31,6 @@ import { CoreAuthRoutingModule } from './core-auth-routing.module';
     CoreForgotPasswordComponent,
     CoreSubmitNewPasswordComponent,
     CoreLogoutComponent,
-    // FormsModule,
     CoreAuthRoutingModule
   ]
 })
