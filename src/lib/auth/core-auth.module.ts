@@ -14,8 +14,7 @@ import { CoreAuthRoutingModule } from './core-auth-routing.module';
 @NgModule({
   imports: [ 
     CommonModule,
-    FormsModule,
-    // CoreAuthRoutingModule
+    FormsModule
   ],
   providers: [
     CoreAuthGuard,
