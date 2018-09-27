@@ -11,7 +11,7 @@ export class CoreLogoutComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit() {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/auth/login');
   }
 
 }
