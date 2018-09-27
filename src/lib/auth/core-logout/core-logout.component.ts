@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class CoreLogoutComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
       this.router.navigateByUrl('/');
