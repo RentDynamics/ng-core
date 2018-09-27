@@ -14,7 +14,8 @@ export class CoreAuthGuard implements CanActivate {
       return true;
     } else {
       const pathname = location.pathname;
-      const routerExtras = pathname && pathname !== '/' ? { queryParams: { returnUrl:  pathname } } : {};
+      const routerExtras = pathname && pathname !== '/' && !(pathname.includes('logout') || pathname.includes('logoff')) ? 
+        { queryParams: { returnUrl:  pathname } } : {};
       this.router.navigate([`/auth/login`], routerExtras);
       return false;
     }

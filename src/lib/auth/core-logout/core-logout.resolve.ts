@@ -2,10 +2,10 @@ import { Injectable } from "@angular/core";
 import { Resolve, ActivatedRouteSnapshot } from "@angular/router";
 import { Router } from "@angular/router";
 
-import { AuthService, ApiOldAuthService } from '@rd/core';
+import { AuthService } from '../../shared/shared/auth.service';
 
 @Injectable()
-export class LogoutResolve implements Resolve<any> {
+export class CoreLogoutResolve implements Resolve<any> {
 
   constructor(public authSvc: AuthService, public router: Router) {}
 
