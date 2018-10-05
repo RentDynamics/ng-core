@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { RdAngularCoreModule } from '@rd/core';
+import { RdAngularCoreModule } from '../src/public_api';
 
 import { TimezoneService,
     UtcToLocalDateTimePipe, UtcToLocalTimePipe } from './shared/index';

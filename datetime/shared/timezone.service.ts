@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of as observableOf } from 'rxjs';
 import { catchError, map, publishReplay, refCount } from 'rxjs/operators';
 
-import { CoreApiService } from '@rd/core';
+import { CoreApiService } from '../../src/public_api';
 
 import { MomentFormat } from './moment-format';
 
