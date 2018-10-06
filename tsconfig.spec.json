@@ -7,6 +7,7 @@
       "node",
       "jssha"
     ]
+    
   },
   "files": [
     "src/test.ts"
