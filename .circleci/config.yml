@@ -43,12 +43,8 @@ jobs:
       # # upload coverage file to codecov
       # - run: ./node_modules/.bin/codecov
 
-      - deploy:
-          name: npm run build
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              npm run build
-            fi
+      - run: npm run build
+
       - deploy:
           name: npm run semantic-release
           command: |
