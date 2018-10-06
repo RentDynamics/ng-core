@@ -16,20 +16,6 @@
     "lib": [
       "es2017",
       "dom"
-    ],
-    "paths": {
-      "@rd/core": [
-        "./index.ts"
-      ],
-      "@rd/core/*": [
-        "./*"
-      ]
-      // "@rd/core/datetime": [
-      //   "./datetime/index.ts"
-      // ],
-      // "@rd/core/testing": [
-      //   "./testing/index.ts"
-      // ]
-    }
+    ]
   }
 }

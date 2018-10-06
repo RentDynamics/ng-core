@@ -6,8 +6,21 @@
       "jasmine",
       "node",
       "jssha"
-    ]
-    
+    ],
+    "paths": {
+      "@rd/core": [
+        "./index.ts"
+      ],
+      "@rd/core/*": [
+        "./*"
+      ],
+      "@rd/core/datetime": [
+        "./datetime/index.ts"
+      ],
+      "@rd/core/testing": [
+        "./testing/index.ts"
+      ]
+    }
   },
   "files": [
     "src/test.ts"
