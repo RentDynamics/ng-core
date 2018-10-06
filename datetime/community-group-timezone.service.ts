@@ -4,15 +4,12 @@ import {of as observableOf,  Observable } from 'rxjs';
 import {catchError, map, refCount, publishReplay} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
-import { CoreApiService } from '../src/public_api';
+import { CoreApiService } from '@rd/core';
 import { MomentFormat } from './shared/moment-format';
 
 import * as moment from 'moment';
 import 'moment-timezone';
-
-export interface HttpRequestCache {
-  [key: number]: Observable<any>;
-}
+import { HttpRequestCache } from './shared/timezone.service';
 
 @Injectable()
 export class CommunityGroupTimezoneService implements MomentFormat {

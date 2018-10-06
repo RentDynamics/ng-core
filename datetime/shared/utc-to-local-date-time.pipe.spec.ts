@@ -4,8 +4,8 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { Observable } from 'rxjs';
 import { UtcToLocalDateTimePipe } from './utc-to-local-date-time.pipe';
 
-import { CoreApiService } from '../../src/public_api';
-import { CoreApiServiceMock } from '../../testing';
+import { CoreApiService } from '@rd/core';
+import { CoreApiServiceMock } from '@rd/core/testing';
 
 import { TimezoneService } from './timezone.service';
 

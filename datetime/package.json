@@ -1,4 +1,14 @@
 {
+  "name": "@rd/datetime",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@rd/core": "^1.2.5",
+    "rxjs": "^6.2.0",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21"
+  },
   "ngPackage": {
     "lib": {
       "entryFile": "index.ts"

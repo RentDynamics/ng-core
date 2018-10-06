@@ -2,8 +2,8 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 
-import { CoreApiService } from '../src/public_api';
-import { CoreApiServiceMock } from '../testing';
+import { CoreApiService } from '@rd/core';
+import { CoreApiServiceMock } from '@rd/core/testing';
 
 import { CommunityGroupTimezoneService } from './community-group-timezone.service';
 

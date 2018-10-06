@@ -2,10 +2,11 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { RdAngularCoreModule } from '../src/public_api';
+import { RdAngularCoreModule } from '@rd/core';
 
 import { TimezoneService,
     UtcToLocalDateTimePipe, UtcToLocalTimePipe } from './shared/index';
+import { CommunityGroupTimezoneService } from './community-group-timezone.service';
 
 @NgModule({
     imports: [
@@ -29,6 +30,7 @@ import { TimezoneService,
         RdAngularCoreModule,
     ],
     providers: [
+        CommunityGroupTimezoneService,
         TimezoneService
     ]
 })
