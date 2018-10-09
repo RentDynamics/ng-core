@@ -6,8 +6,8 @@ import { CoreApiService } from '@rd/core';
 
 import { MomentFormat } from './moment-format';
 
-import * as moment from 'moment';
-import 'moment-timezone';
+// import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 
 
 export interface HttpRequestCache {

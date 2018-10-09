@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 import { CoreApiService } from '@rd/core';
 import { MomentFormat } from './shared/moment-format';
 
-import * as moment from 'moment';
-import 'moment-timezone';
+// import * as moment from 'moment';
+import * as moment from 'moment-timezone';
 import { HttpRequestCache } from './shared/timezone.service';
 
 @Injectable()
