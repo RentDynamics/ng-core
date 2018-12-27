@@ -5,14 +5,15 @@ import { Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 import { Observable, Observer } from 'rxjs';
 
-import { ReportingApiService, ReportingAuthService, ReportingAuthServiceConfig } from './public_api';
+import * as PUBLIC_API from './public_api';
+var PublicApi = Object.assign({}, PUBLIC_API);
+
 
 describe('public_api exports', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
                 { provide: Http, useClass: MockBackend },
-
             ],
             schemas: [
                 NO_ERRORS_SCHEMA
@@ -21,12 +22,23 @@ describe('public_api exports', () => {
     });
 
     it('should export ReportingApiService', inject([], () => {
-        expect(ReportingApiService).toBeTruthy();
+      expect(PublicApi.ReportingApiService).toBeTruthy();
     }));
     it('should export ReportingAuthService', inject([], () => {
-        expect(ReportingAuthService).toBeTruthy();
+        expect(PublicApi.ReportingAuthService).toBeTruthy();
     }));
     it('should export ReportingAuthServiceConfig', inject([], () => {
-        expect(ReportingAuthServiceConfig).toBeTruthy();
+        expect(PublicApi.ReportingAuthServiceConfig).toBeTruthy();
     }));
+
+    it('should export CallroutingApiService', inject([], () => {
+        expect(PublicApi.CallroutingApiService).toBeTruthy();
+    }));
+    it('should export CallroutingAuthService', inject([], () => {
+        expect(PublicApi.CallroutingAuthService).toBeTruthy();
+    }));
+    it('should export CallroutingAuthServiceConfig', inject([], () => {
+        expect(PublicApi.CallroutingAuthServiceConfig).toBeTruthy();
+    }));
+  
 });

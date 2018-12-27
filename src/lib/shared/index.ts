@@ -26,3 +26,7 @@ export { ApiOldModule } from './api-old/api-old.module';
 export { ReportingApiService } from './reporting/reporting-api.service';
 export { ReportingAuthService } from './reporting/reporting-auth.service';
 export { ReportingAuthServiceConfig } from './reporting/reporting-auth-service-config';
+
+export { CallroutingApiService } from './callrouting/callrouting-api.service';
+export { CallroutingAuthService } from './callrouting/callrouting-auth.service';
+export { CallroutingAuthServiceConfig } from './callrouting/callrouting-auth-service-config';
