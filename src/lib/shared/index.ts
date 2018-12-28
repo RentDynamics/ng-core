@@ -30,3 +30,4 @@ export { ReportingAuthServiceConfig } from './reporting/reporting-auth-service-c
 export { CallroutingApiService } from './callrouting/callrouting-api.service';
 export { CallroutingAuthService } from './callrouting/callrouting-auth.service';
 export { CallroutingAuthServiceConfig } from './callrouting/callrouting-auth-service-config';
+export { CallroutingModule } from './callrouting/callrouting.module';
