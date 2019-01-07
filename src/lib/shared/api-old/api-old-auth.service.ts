@@ -24,7 +24,7 @@ export class ApiOldAuthService extends AuthService implements AuthServiceLogin {
   }
 
   isAuthenticated(){
-    return window.sessionStorage.getItem('rdUserId') && window.sessionStorage.getItem('rdUserAuthToken') ? true : false;
+    return window.localStorage.getItem('rdUserId') && window.localStorage.getItem('rdUserAuthToken') ? true : false;
   }
 
   login(user: CredentialsModel) {
