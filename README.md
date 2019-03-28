@@ -11,7 +11,50 @@
 
 ## @rd/core [![Public or Private Repo][public-true-image]][public-true-link]
 
-todo: documentation...
+<!--[![Build Status](https://travis-ci.org/ng2select/bootstrap.svg?branch=master)](https://travis-ci.org/ng2select/bootstrap)-->
+
+## @rd/core@3.x
+
+#### this module contains any javascript code that is essential to every application.
+it is reliant on the @angular/core, @angular/common modules. this module contains, but is not limited to, base classes, etc of which are core to any front-end javascript architecture.
+
+http://rd.github.io
+
+## installation
+
+```
+npm install @rd/core jssha --save
+
+```
+
+## how to import
+
+```TypeScript  
+
+import { RdAngularCoreModule } from '@rd/core';
+
+```
+
+## examples
+
+### OrderByObjectPipe
+```
+*ngFor="let client of clients | async | orderByObject: ['name']"
+
+```
+or
+```
+*ngFor="let client of clients | async | orderByObject: ['-name']"
+
+```
+
+<iframe src="http://embed.plnkr.co/GeHGKI/?show=preview" frameborder="0" width="100%" height="500"></iframe>
+
+_powered by:_
+https://rentdynamics.com +
+https://angular.io
+
+## release
 
 In order to release this package automatically, you must format the commit message properly so that when it is merged into master, it will semantically release the new changes based on commit msg type and previously tagged version
 
