@@ -60,6 +60,13 @@ In order to release this package automatically, you must format the commit messa
 Don't forget to expose any new additions publically, ensure everything is accessible via the public_api.ts
 
 
+[Code review guidelines for this project](CODE_REVIEWS.md)
+
+[Coding standards for this project](CODING_STANDARDS.md)
+
+[Contribution guidelines for this project](CONTRIBUTING.md)
+
+
 [npm-icon]: https://nodei.co/npm/@rd/core.svg?downloads=true
 [npm-icon-link]: https://npmjs.org/package/@rd/core
 [circleci-badge]: https://circleci.com/gh/RentDynamics/ng-core.svg?style=shield
