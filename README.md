@@ -1,7 +1,6 @@
 
 [![Circle CI Badge][circleci-badge]][circleci-link]
 [![codecov][codecov-image]][codecov-link]
-[![NSP Status][nsp-image]][nsp-link]
 [![Dependency Status][dependency-image]][dependency-link]
 [![Dev Dependency Status][dev-dependency-image]][dev-dependency-link]
 [![Peer Dependency Status][peer-dependency-image]][peer-dependency-link]
