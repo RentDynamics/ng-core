@@ -47,7 +47,7 @@ or
 
 ```
 
-<iframe src="http://embed.plnkr.co/GeHGKI/?show=preview" frameborder="0" width="100%" height="500"></iframe>
+<!-- <iframe src="http://embed.plnkr.co/GeHGKI/?show=preview" frameborder="0" width="100%" height="500"></iframe> -->
 
 _powered by:_
 https://rentdynamics.com +
