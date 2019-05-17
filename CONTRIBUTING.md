@@ -1,4 +1,5 @@
 # Contributing
+[<- Back to README.md](README.md)
 
 We would love for you to contribute to this repo and help make it ever better!
 As a contributor, here are the guidelines we would like you to follow:
