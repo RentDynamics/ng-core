@@ -10,23 +10,19 @@
 
 ## @rd/core [![Public or Private Repo][public-true-image]][public-true-link]
 
-<!--[![Build Status](https://travis-ci.org/ng2select/bootstrap.svg?branch=master)](https://travis-ci.org/ng2select/bootstrap)-->
 
-## @rd/core@3.x
+#### This module contains any javascript code that is essential to every application.
+It is reliant on the @angular/core, @angular/common modules. this module contains, but is not limited to, base classes, etc of which are core to any front-end javascript architecture.
 
-#### this module contains any javascript code that is essential to every application.
-it is reliant on the @angular/core, @angular/common modules. this module contains, but is not limited to, base classes, etc of which are core to any front-end javascript architecture.
 
-http://rd.github.io
-
-## installation
+## Installation
 
 ```
 npm install @rd/core jssha --save
 
 ```
 
-## how to import
+## How to import
 
 ```TypeScript  
 
@@ -34,7 +30,7 @@ import { RdAngularCoreModule } from '@rd/core';
 
 ```
 
-## examples
+## Examples
 
 ### OrderByObjectPipe
 ```
@@ -49,11 +45,7 @@ or
 
 <!-- <iframe src="http://embed.plnkr.co/GeHGKI/?show=preview" frameborder="0" width="100%" height="500"></iframe> -->
 
-_powered by:_
-https://rentdynamics.com +
-https://angular.io
-
-## release
+## Contributing
 
 In order to release this package automatically, you must format the commit message properly so that when it is merged into master, it will semantically release the new changes based on commit msg type and previously tagged version
 
@@ -65,6 +57,10 @@ Don't forget to expose any new additions publically, ensure everything is access
 [Coding standards for this project](CODING_STANDARDS.md)
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
+
+_powered by:_
+https://rentdynamics.com +
+https://angular.io
 
 
 [npm-icon]: https://nodei.co/npm/@rd/core.svg?downloads=true
