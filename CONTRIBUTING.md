@@ -1,23 +1,20 @@
-# Contributing to rd-angular
+# Contributing
+[<- Back to README.md](README.md)
 
 We would love for you to contribute to this repo and help make it ever better!
 As a contributor, here are the guidelines we would like you to follow:
 
- - [Code of Conduct](#coc)
  - [Question or Problem?](#question)
  - [Issues and Bugs](#issue)
  - [Feature Requests](#feature)
  - [Submission Guidelines](#submit-pr)
  - [Coding Rules](#rules)
  - [Commit Message Guidelines](#commit)
- - [Signing the CLA](#cla)
 
-## <a name="coc"></a> Code of Conduct
-Help us keep Angular open and inclusive. Please read and follow our [Code of Conduct][coc].
 
 ## <a name="question"></a> Got a Question or Problem?
 
-Please do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [StackOverflow](https://stackoverflow.com/questions/tagged/angular-material2) where the questions should be tagged with tag `angular-material2`.
+Please do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [StackOverflow](https://stackoverflow.com/questions/tagged/rd) where the questions should be tagged with tag `rd`.
 
 StackOverflow is a much better place to ask questions since:
 
@@ -27,7 +24,6 @@ StackOverflow is a much better place to ask questions since:
 
 To save your and our time, we will be systematically closing all the issues that are requests for general support and redirecting people to StackOverflow.
 
-If you would like to chat about the question in real-time, you can reach out via [our gitter channel][gitter].
 
 ## <a name="issue"></a> Found an Issue?
 If you find a bug in the source code or a mistake in the documentation, you can help us by
@@ -57,29 +53,28 @@ features by not reporting duplicate issues.  Providing the following information
 chances of your issue being dealt with quickly:
 
 * **Overview of the Issue** - if an error is being thrown a non-minified stack trace helps
-* **Angular and Material Versions** - which versions of Angular and Material are affected
+* **Versions** - which versions are affected
     (e.g. 2.0.0-alpha.53)
 * **Motivation for or Use Case** - explain what are you trying to do and why the current behavior
     is a bug for you
 * **Browsers and Operating System** - is this a problem with all browsers?
 * **Reproduce the Error** - provide a live example (using [CodePen][codepen], [JsBin][jsbin],
     [Plunker][plunker], etc.) or a unambiguous set of steps
-* **Screenshots** - Due to the visual nature of Angular Material, screenshots can help the team
+* **Screenshots** - Due to the visual nature of the source code, screenshots can help the team
     triage issues far more quickly than a text description.
 * **Related Issues** - has a similar issue been reported before?
 * **Suggest a Fix** - if you can't fix the bug yourself, perhaps you can point to what might be
     causing the problem (line of code or commit)
 
-You can file new issues by providing the above information [here](https://github.com/angular/material2/issues/new).
+You can file new issues by providing the above information [here](https://github.com/RentDynamics/ng-core/issues/new).
 
 
 ### <a name="submit-pr"></a> Submitting a Pull Request (PR)
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-* Search [GitHub](https://github.com/angular/material2/pulls) for an open or closed PR
+* Search [GitHub](https://github.com/RentDynamics/ng-core/pulls) for an open or closed PR
   that relates to your submission. You don't want to duplicate effort.
-* Please sign our [Contributor License Agreement (CLA)](#cla) before sending PRs.
-  We cannot accept code without this.
+
 * Make your changes in a new git branch:
 
      ```shell
@@ -88,9 +83,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 
 * Create your patch, **including appropriate test cases**.
 * Follow our [Coding Rules](#rules).
-* Test your changes with our supported browsers and screen readers.
-* Run the full Angular Material test suite, as described in the [developer documentation][dev-doc],
-  and ensure that all tests pass.
+
 * Commit your changes using a descriptive commit message that follows our
   [commit message conventions](#commit). Adherence to these conventions
   is necessary because release notes are automatically generated from these messages.
@@ -103,66 +96,39 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 * Push your branch to GitHub:
 
     ```shell
-    git push my-fork my-fix-branch
+    git push my-fix-branch
     ```
 
-* In GitHub, send a pull request to `material2:master`.
+* In GitHub, send a pull request to `ng-core:master`.
 * If we suggest changes then:
   * Make the required updates.
-  * Re-run the Angular Material test suites to ensure tests are still passing.
-  * Rebase your branch and force push to your GitHub repository (this will update your Pull
-    Request):
+  * Re-run the test suites to ensure tests are still passing.
 
-    ```shell
-    git rebase master -i
-    git push -f
-    ```
 
 That's it! Thank you for your contribution!
-
-#### After your pull request is merged
-
-After your pull request is merged, you can safely delete your branch and pull the changes
-from the main (upstream) repository:
-
-* Delete the remote branch on GitHub either through the GitHub web UI or your local shell as
-    follows:
-
-    ```shell
-    git push my-fork --delete my-fix-branch
-    ```
-
-* Check out the master branch:
-
-    ```shell
-    git checkout master -f
-    ```
-
-* Delete the local branch:
-
-    ```shell
-    git branch -D my-fix-branch
-    ```
-
-* Update your master with the latest upstream version:
-
-    ```shell
-    git pull --ff upstream master
-    ```
 
 ## <a name="rules"></a> Coding Rules
 To ensure consistency throughout the source code, keep these rules in mind as you are working:
 
 * All features or bug fixes **must be tested** by one or more specs (unit-tests).
 * All public API methods **must be documented**. (Details TBD).
-* We follow [Google's JavaScript Style Guide][js-style-guide], but wrap all code at
-  **100 characters**.
 
 ## <a name="commit"></a> Commit Message Guidelines
 
 We have very precise rules over how our git commit messages can be formatted.  This leads to **more
 readable messages** that are easy to follow when looking through the **project history**.  But also,
-we use the git commit messages to **generate the Angular Material change log**.
+we use the git commit messages to **generate our change log**.
+
+### Commitizen
+Commitizen is a command-line utility tool which is installed as a devDependency in this package by default. It can be used to automatically format your commit messages properly for you, by simply utilizing its interactive cli:
+
+```shell
+git add .
+
+npm run commit
+
+git push --set-upstream origin my-branch-name
+```
 
 ### Commit Message Format
 Each commit message consists of a **header**, a **body** and a **footer**.  The header has a special
@@ -225,24 +191,12 @@ The rest of the commit message is then used for this.
 
 A detailed explanation can be found in this [document][commit-message-format].
 
-## <a name="cla"></a> Signing the CLA
 
-Please sign our Contributor License Agreement (CLA) before sending pull requests. For any code
-changes to be accepted, the CLA must be signed. It's a quick process, we promise!
-
-* For individuals we have a [simple click-through form][individual-cla].
-* For corporations we'll need you to
-  [print, sign and one of scan+email, fax or mail the form][corporate-cla].
-
-
-[material-group]: https://groups.google.com/forum/#!forum/angular-material2
-[coc]: https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md
 [commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/preview
 [corporate-cla]: http://code.google.com/legal/corporate-cla-v1.0.html
-[dev-doc]: https://github.com/angular/material2/blob/master/DEV_ENVIRONMENT.md
-[github]: https://github.com/angular/material2
-[gitter]: https://gitter.im/angular/material2
-[individual-cla]: http://code.google.com/legal/individual-cla-v1.0.html
+[github]: https://github.com/RentDynamics/ng-core
+<!-- [submit-issue]: https://github.com/RentDynamics/ng-core/issues/new
+[submit-pr]: https://github.com/RentDynamics/ng-core/compare -->
 [js-style-guide]: https://google.github.io/styleguide/jsguide.html
 [codepen]: http://codepen.io/
 [jsbin]: http://jsbin.com/
