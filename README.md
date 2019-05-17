@@ -49,7 +49,7 @@ or
 
 In order to release this package automatically, you must format the commit message properly so that when it is merged into master, it will semantically release the new changes based on commit msg type and previously tagged version
 
-Don't forget to expose any new additions publically, ensure everything is accessible via the public_api.ts
+Don't forget to expose any new additions publicly, ensure everything is accessible via the public_api.ts
 
 
 [Code review guidelines for this project](CODE_REVIEWS.md)
