@@ -58,7 +58,8 @@ export class AuthService {
     }
 
     getNonce(timestamp: number, url: string, payloadStr?: string) {
-        var nonceStr = timestamp + url;
+        var encodedUrl = encodeURI(url);
+        var nonceStr = timestamp + encodedUrl;
 
         if (typeof payloadStr !== 'undefined') {
             nonceStr += payloadStr;
