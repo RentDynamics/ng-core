@@ -58,7 +58,7 @@
     "@types/jssha": "0.0.29",
     "@types/moment-timezone": "0.5.9",
     "@types/node": "8.9.4",
-    "codecov": "3.0.4",
+    "codecov": "3.6.5",
     "codelyzer": "4.2.1",
     "commitizen": "2.10.1",
     "core-js": "2.5.4",
