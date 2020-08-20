@@ -91,7 +91,7 @@ describe('Service: ApiService', () => {
       let endpoint = '/endpoint';
       let data = { id: 1 };
       // Act
-      service.postWithoutAuth(endpoint, data);
+      service.postWithoutAuth(endpoint, data).subscribe();
       // Assert
       expect(spy.authSvc.getAuthHeadersWithoutAuth).toHaveBeenCalled();
     }));
@@ -120,7 +120,7 @@ describe('Service: ApiService', () => {
       let endpoint = '/endpoint';
       let body = { id: -1 };
       // Act
-      service.post(endpoint, body);
+      service.post(endpoint, body).subscribe();
       // Assert
       expect(spy.authSvc.getAuthHeaders).toHaveBeenCalled();
       expect(spy.authSvc.getAuthHeaders).toHaveBeenCalledWith('/svc/mock-service/endpoint', { id: -1 });
@@ -271,7 +271,7 @@ describe('Service: ApiService', () => {
             let endpoint = '/endpoint';
             let body = { id: -1 };
             // Act
-            service.post(endpoint, body);
+            service.post(endpoint, body).subscribe();
             // Assert
             expect(spy.authSvc.getAuthHeaders).toHaveBeenCalled();
             expect(spy.authSvc.getAuthHeaders).toHaveBeenCalledWith('/endpoint', { id: -1 });
