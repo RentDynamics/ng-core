@@ -65,7 +65,7 @@ export class AuthService {
 
         https://github.com/Skylude/django-rest-framework-signature/blob/b3d613079137b52f660b9f4f4076cac144d48037/rest_framework_signature/authentication.py#L132
         */
-        var encodedUrl = encodeURI(url).replace('%20', '|');
+        var encodedUrl = encodeURI(url).replace(/%20/g, '|');
 
         var nonceStr = timestamp + encodedUrl;
 
