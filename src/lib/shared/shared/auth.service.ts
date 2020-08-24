@@ -58,7 +58,15 @@ export class AuthService {
     }
 
     getNonce(timestamp: number, url: string, payloadStr?: string) {
-        var encodedUrl = encodeURI(url);
+        /*
+        we need to calculate the nonce on the encoded URL to allow special characters to work
+        in REST calls; HOWEVER, rest-framework-simplify performs a replacement on pipe characters
+        before calculating the nonce on the back-end:
+
+        https://github.com/Skylude/django-rest-framework-signature/blob/b3d613079137b52f660b9f4f4076cac144d48037/rest_framework_signature/authentication.py#L132
+        */
+        var encodedUrl = encodeURI(url).replace('%20', '|');
+
         var nonceStr = timestamp + encodedUrl;
 
         if (typeof payloadStr !== 'undefined') {
