@@ -79,7 +79,7 @@
     "protractor": "5.4.0",
     "rxjs": "6.0.0",
     "script-loader": "0.7.2",
-    "semantic-release": "15.9.12",
+    "semantic-release": "17.2.3",
     "ts-node": "5.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "1.9.0",
